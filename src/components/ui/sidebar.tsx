@@ -135,11 +135,14 @@ function SidebarProvider({
             {
               "--sidebar-width": SIDEBAR_WIDTH,
               "--sidebar-width-icon": SIDEBAR_WIDTH_ICON,
+              height: "calc(100% - 53px)",
+              overflow: "hidden",
               ...style,
             } as React.CSSProperties
           }
+          // min-h-svh
           className={cn(
-            "group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full",
+            "group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex w-full",
             className
           )}
           {...props}

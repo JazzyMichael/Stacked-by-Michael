@@ -38,6 +38,7 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
+  SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { NavLogo } from "./nav-logo";
 
@@ -109,8 +110,9 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
+      <SidebarHeader className="flex flex-row justify-between mt-2 mb-4 pl-4">
         <NavLogo />
+        <SidebarTrigger className="group-data-[collapsible=icon]:hidden" />
       </SidebarHeader>
       <SidebarContent>
         <OrgSwitcher organizations={data.organization} />

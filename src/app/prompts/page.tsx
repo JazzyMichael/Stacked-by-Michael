@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar";
+import { AppSidebar } from "@/components/sidebar-dashboard";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
