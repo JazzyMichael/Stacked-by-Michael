@@ -5,7 +5,6 @@ export default async function Layout({
   children,
 }: {
   children: React.ReactNode;
-  params: Promise<{ id: string }>;
 }) {
   return (
     <SidebarProvider>

@@ -12,7 +12,9 @@ import { Badge } from "./ui/badge";
 
 export function NavMain({
   items,
+  openSearch,
 }: {
+  openSearch?: Function;
   items: {
     title: string;
     url: string;
@@ -31,7 +33,12 @@ export function NavMain({
         {items.map((item) => (
           <SidebarMenuItem key={item.title}>
             <SidebarMenuButton asChild>
-              <a href={item.url}>
+              <a
+                href={item.url}
+                onClick={() =>
+                  item.title === "Global Search" && openSearch && openSearch()
+                }
+              >
                 <item.icon className="size-6 h-6 w-6 p-0.5 mr-1.5 stroke-[1.5]" />
                 <span className="font-medium">{item.title}</span>
                 {item.badge && (

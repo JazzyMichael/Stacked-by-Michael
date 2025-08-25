@@ -122,6 +122,10 @@ export default function Page() {
             <Settings2 />
           </Button>
         </div>
+
+        <Button asChild className="mt-5">
+          <a href="/project/123">View Project</a>
+        </Button>
       </main>
     </>
   );
