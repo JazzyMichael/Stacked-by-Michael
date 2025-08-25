@@ -27,11 +27,6 @@ import {
   Type,
   UsersRound,
 } from "lucide-react";
-
-import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
-import { NavUser } from "@/components/nav-user";
-import { OrgSwitcher } from "./org-switcher";
 import {
   Sidebar,
   SidebarContent,
@@ -40,10 +35,13 @@ import {
   SidebarRail,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { NavMain } from "@/components/nav-main";
+import { NavProjects } from "@/components/nav-projects";
+import { NavUser } from "@/components/nav-user";
 import { NavLogo } from "./nav-logo";
+import { OrgSwitcher } from "./org-switcher";
 
-// This is sample data.
-const data = {
+const navItems = {
   user: {
     name: "shadcn",
     email: "m@example.com",
@@ -63,28 +61,28 @@ const data = {
     },
     {
       title: "Projects",
-      url: "/projects",
+      url: "/dashboard/projects",
       icon: House,
       isActive: true,
     },
     {
       title: "Knowledge Bases",
-      url: "/knowledge-bases",
+      url: "/dashboard/knowledge-bases",
       icon: Database,
     },
     {
       title: "Connections",
-      url: "/connections",
+      url: "/dashboard/connections",
       icon: ArrowLeftRight,
     },
     {
       title: "Prompt Library",
-      url: "/prompts",
+      url: "/dashboard/prompts",
       icon: SquarePen,
     },
     {
       title: "Project Analytics",
-      url: "/analytics",
+      url: "/dashboard/analytics",
       icon: ChartNoAxesColumnIncreasing,
     },
   ],
@@ -115,12 +113,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarTrigger className="group-data-[collapsible=icon]:hidden" />
       </SidebarHeader>
       <SidebarContent>
-        <OrgSwitcher organizations={data.organization} />
-        <NavMain items={data.navMain} />
+        <OrgSwitcher organizations={navItems.organization} />
+        <NavMain items={navItems.navMain} />
       </SidebarContent>
       <SidebarFooter>
-        <NavProjects projects={data.projects} />
-        <NavUser user={data.user} />
+        <NavProjects projects={navItems.projects} />
+        <NavUser user={navItems.user} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

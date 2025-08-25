@@ -4,10 +4,10 @@ import { createContext, ReactNode, useContext, useState } from "react";
 const DragDropContext = createContext([null, (_) => {}]);
 
 export const DragDropProvider = ({ children }: { children: ReactNode }) => {
-  const [type, setType] = useState(null);
+  const [nodeData, setNodeData] = useState(null);
 
   return (
-    <DragDropContext.Provider value={[type, setType]}>
+    <DragDropContext.Provider value={[nodeData, setNodeData]}>
       {children}
     </DragDropContext.Provider>
   );

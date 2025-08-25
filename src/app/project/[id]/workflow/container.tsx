@@ -14,10 +14,47 @@ import {
   ControlButton,
   useReactFlow,
   ReactFlowProvider,
+  NodeTypes,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { File, Plus, Redo, Sparkles, Undo } from "lucide-react";
 import { DragDropProvider, useDragDrop } from "@/hooks/DragDrop";
+
+// import { nodeTypes } from "@/components/nodes/data";
+import {
+  InputNode,
+  FilesNode,
+  TriggerNode,
+  URLNode,
+  AudioNode,
+  ImageNode,
+} from "@/components/nodes/input-nodes";
+import {
+  ActionNode,
+  OutputNode,
+  TemplateNode,
+  AudioNode as AudioOutputNode,
+  ImageNode as ImageOutputNode,
+} from "@/components/nodes/output-nodes";
+import { BaseNode } from "@/components/nodes/base-node";
+
+const nodeTypes = {
+  // Inputs
+  Input: InputNode,
+  Files: FilesNode,
+  Trigger: TriggerNode,
+  URL: URLNode,
+  Audio: AudioNode,
+  Image: ImageNode,
+  // Outputs
+  Output: OutputNode,
+  Action: ActionNode,
+  Template: TemplateNode,
+  AudioOutput: AudioOutputNode,
+  ImageOutput: ImageOutputNode,
+  // Default/Base/Fallback
+  Base: BaseNode,
+};
 
 const initialNodes = [
   { id: "n1", position: { x: 0, y: 0 }, data: { label: "Node 1" } },
@@ -25,13 +62,20 @@ const initialNodes = [
 ];
 const initialEdges = [{ id: "n1-n2", source: "n1", target: "n2" }];
 
-let dd_id = 0;
-const getId = () => `dd_id-${dd_id++}`;
+function generateID(length = 20) {
+  let result = "";
+  const characters = "0123456789";
+  const charactersLength = characters.length;
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
 
 export default function Container() {
   const [nodes, setNodes] = useState(initialNodes);
   const [edges, setEdges] = useState(initialEdges);
-  const [type, setType] = useDragDrop();
+  const [nodeData, setNodeData] = useDragDrop();
   const { screenToFlowPosition } = useReactFlow();
   // const reactFlowWrapper = useRef(null);
 
@@ -45,7 +89,7 @@ export default function Container() {
       event.preventDefault();
 
       // check if the dropped element is valid
-      if (!type) {
+      if (!nodeData) {
         return;
       }
 
@@ -58,17 +102,17 @@ export default function Container() {
       });
 
       const newNode = {
-        id: getId(),
-        type,
+        id: generateID(),
         position,
-        data: { label: `${type} node` },
+        // @ts-ignore
+        type: nodeData.type,
+        // @ts-ignore
+        data: { label: nodeData.title ?? "Custom", ...nodeData },
       };
-
-      console.log(newNode);
 
       setNodes((nds) => nds.concat(newNode));
     },
-    [type, nodes, setNodes]
+    [nodeData, nodes, setNodes]
   );
 
   // DragStart event is used in the sidebar, this may not be required
@@ -115,6 +159,7 @@ export default function Container() {
         // onDragStart={onDragStart}
         onDragOver={onDragOver}
         fitView
+        nodeTypes={nodeTypes}
       >
         <Controls
           position={"bottom-center"}

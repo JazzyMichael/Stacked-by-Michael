@@ -33,17 +33,22 @@ export function NavCollapsible({
     }[];
   }[];
 }) {
-  const [_, setType] = useDragDrop();
+  const [_, setNodeData] = useDragDrop();
 
-  const onDragStart = (event: React.DragEvent, nodeType: string) => {
-    setType && setType(nodeType);
+  const onDragStart = (event: React.DragEvent, nodeData: any) => {
+    setNodeData && setNodeData(nodeData);
     event.dataTransfer.effectAllowed = "move";
+  };
 
-    // if (event.dataTransfer) {
-    //   event.dataTransfer.effectAllowed = "move";
-    // } else {
-    //   console.log("No DragEvent dataTransfer :(");
-    // }
+  const getNodeType = (category: string, item: string) => {
+    // Handle duplicate names
+    if (category === "Outputs" && item === "Audio") return "AudioOutput";
+    if (category === "Outputs" && item === "Image") return "ImageOutput";
+
+    // Default/fallback
+    if (category !== "Inputs" && category !== "Outputs") return "Base";
+
+    return item;
   };
 
   return (
@@ -70,13 +75,19 @@ export function NavCollapsible({
                 </SidebarMenuButton>
               </CollapsibleTrigger>
               <CollapsibleContent>
-                <SidebarMenuSub className="border-none ml-2 mr-0 my-1.5 pr-1 pt-1">
+                <SidebarMenuSub className="border-none ml-2 mr-0 my-1.5 pr-1 pt-1 gap-2">
                   {item.items?.map((subItem) => (
                     <SidebarMenuSubItem key={subItem.title}>
                       <SidebarMenuSubButton
                         asChild
                         draggable
-                        onDragStart={(event) => onDragStart(event, "default")}
+                        onDragStart={(event) =>
+                          onDragStart(event, {
+                            ...subItem,
+                            type: getNodeType(item.title, subItem.title),
+                            category: item.title,
+                          })
+                        }
                       >
                         <div className="group/nodeitem active:scale-105 active:-rotate-2 transition-transform flex justify-between border-1 cursor-pointer shadow-sm">
                           {subItem.icon && (

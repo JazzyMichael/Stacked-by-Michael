@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         destination: "/project/:id/workflow",
         permanent: true,
       },
+      {
+        source: "/dashboard",
+        destination: "/dashboard/projects",
+        permanent: true,
+      },
     ];
   },
 };

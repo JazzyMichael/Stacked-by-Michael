@@ -1,0 +1,88 @@
+import { memo, ReactNode, useCallback } from "react";
+import { Handle, Position, useNodeId, useReactFlow } from "@xyflow/react";
+import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
+import { Clock, EllipsisVertical } from "lucide-react";
+
+export default memo(
+  ({
+    data,
+    isConnectable,
+    children,
+  }: {
+    data: any;
+    isConnectable: boolean;
+    children: ReactNode;
+  }) => {
+    console.log(data);
+    const id = useNodeId();
+    const { setNodes } = useReactFlow();
+
+    // TODO: add alert dialog to confirm delete
+    const handleDelete = useCallback(() => {
+      setNodes((prevNodes) => prevNodes.filter((node) => node.id !== id));
+    }, [id, setNodes]);
+
+    return (
+      <div className="group/nodetemplate bg-white border-1 shadow-md rounded-md p-2 flex flex-col justify-between gap-2 w-72">
+        <Handle
+          type="target"
+          position={Position.Left}
+          onConnect={(params) => console.log("handle onConnect", params)}
+          isConnectable={isConnectable}
+        />
+
+        {/* header */}
+        <div className="flex items-center gap-2">
+          <div className="rounded-sm bg-accent border-1 p-1.5">
+            {data.icon && <data.icon className="size-3.5 stroke-gray-600" />}
+          </div>
+          <div className="font-medium">{data.title ?? "Node"}</div>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            className="nodrag size-5 hidden group-hover/nodetemplate:flex group-focus/nodetemplate:flex group-active/nodetemplate:flex ml-auto mr-0 p-0"
+            aria-label="Node Actions"
+            title="Node Actions"
+            onClick={handleDelete}
+          >
+            <EllipsisVertical className="size-4 stroke-gray-600" />
+          </Button>
+        </div>
+
+        {/* description */}
+        <div className="text-sm text-gray-600">{data.description ?? ""}</div>
+
+        {/* children */}
+        {children}
+
+        {/* footer */}
+        <div>
+          <Badge
+            variant="outline"
+            className="text-gray-500 py-2 px-1 h-4 text-xs rounded-sm"
+          >
+            <Clock />
+            0.00 sec
+          </Badge>
+        </div>
+
+        {/*
+      <input
+        className="nodrag"
+        type="color"
+        onChange={data.onChange}
+        defaultValue={data.color}
+      />
+      */}
+
+        <Handle
+          type="source"
+          position={Position.Right}
+          isConnectable={isConnectable}
+        />
+      </div>
+    );
+  }
+);

@@ -9,7 +9,7 @@ export default async function Layout({
   children: React.ReactNode;
   params: Promise<{ id: string }>;
 }) {
-  const { id } = await params;
+  // const { id } = await params;
 
   // const headersList = await headers();
   // console.log("Headers:", headersList);

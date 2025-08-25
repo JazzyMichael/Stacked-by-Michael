@@ -23,26 +23,14 @@ import {
   Zap,
 } from "lucide-react";
 
-export type FlowNode = {
-  type: string;
-  label: string;
-  description?: string;
-  icon?: string;
-  image?: string;
-};
-
-// 3 node types determine edge connectivity (input, output, default/both)
-
-export const nodeCategories: string[] = [
-  "Inputs",
-  "Outputs",
-  "LLMs",
-  "Knowledge Bases",
-  "Apps",
-  "Document Readers",
-  "Logic",
-  "Utils",
-];
+import {
+  InputNode,
+  FilesNode,
+  TriggerNode,
+  URLNode,
+  AudioNode,
+  ImageNode,
+} from "@/components/nodes/input-nodes";
 
 export const nodeNavItems = [
   {
@@ -50,12 +38,48 @@ export const nodeNavItems = [
     icon: Download,
     url: "#",
     items: [
-      { title: "Input", icon: PencilLine, url: "#" },
-      { title: "Files", icon: FileMinus, url: "#" },
-      { title: "Trigger", icon: Zap, url: "#" },
-      { title: "URL", icon: Link, url: "#" },
-      { title: "Audio", icon: Mic, url: "#" },
-      { title: "Image", icon: Image, url: "#" },
+      {
+        title: "Input",
+        icon: PencilLine,
+        description: "Allow users to input text",
+        url: "#",
+        component: InputNode,
+      },
+      {
+        title: "Files",
+        icon: FileMinus,
+        description: "Enables user to upload Files",
+        url: "#",
+        component: FilesNode,
+      },
+      {
+        title: "Trigger",
+        icon: Zap,
+        description: "Start your workflow given an element",
+        url: "#",
+        component: TriggerNode,
+      },
+      {
+        title: "URL",
+        icon: Link,
+        description: "Extracts the contents of a Website",
+        url: "#",
+        component: URLNode,
+      },
+      {
+        title: "Audio",
+        icon: Mic,
+        description: "Enables user to upload Audio",
+        url: "#",
+        component: AudioNode,
+      },
+      {
+        title: "Image",
+        icon: Image,
+        description: "Enables user to upload Images",
+        url: "#",
+        component: ImageNode,
+      },
     ],
   },
   {
@@ -63,11 +87,36 @@ export const nodeNavItems = [
     icon: Upload,
     url: "#",
     items: [
-      { title: "Output", icon: PencilLine, url: "#" },
-      { title: "Action", icon: Play, url: "#" },
-      { title: "Template", icon: ScanText, url: "#" },
-      { title: "Audio", icon: Mic, url: "#" },
-      { title: "Image", icon: Image, url: "#" },
+      {
+        title: "Output",
+        icon: PencilLine,
+        description: "Output the results of nodes as text",
+        url: "#",
+      },
+      {
+        title: "Action",
+        icon: Play,
+        description: "Perform a task in another app",
+        url: "#",
+      },
+      {
+        title: "Template",
+        icon: ScanText,
+        description: "Generate a template from inputs",
+        url: "#",
+      },
+      {
+        title: "Audio",
+        icon: Mic,
+        description: "Generate audio from text",
+        url: "#",
+      },
+      {
+        title: "Image",
+        icon: Image,
+        description: "Generate an image from a prompt",
+        url: "#",
+      },
     ],
   },
   {
@@ -81,8 +130,18 @@ export const nodeNavItems = [
     icon: Cloud,
     url: "#",
     items: [
-      { title: "Documents", icon: FileSearch2, url: "#" },
-      { title: "Websites", icon: Globe, url: "#" },
+      {
+        title: "Documents",
+        icon: FileSearch2,
+        description: "Search through your knowledge base",
+        url: "#",
+      },
+      {
+        title: "Websites",
+        icon: Globe,
+        description: "Scrape websites and search the content",
+        url: "#",
+      },
     ],
   },
   { title: "Apps", icon: Zap, url: "#", items: [] },
@@ -91,10 +150,30 @@ export const nodeNavItems = [
     icon: FileText,
     url: "#",
     items: [
-      { title: "Q&A", icon: Search, url: "#" },
-      { title: "Summarizer", icon: Filter, url: "#" },
-      { title: "Transcriber", icon: Languages, url: "#" },
-      { title: "Translator", icon: Languages, url: "#" },
+      {
+        title: "Q&A",
+        icon: Search,
+        description: "Use AI to answer questions about a document",
+        url: "#",
+      },
+      {
+        title: "Summarizer",
+        icon: Filter,
+        description: "Use AI to summarize a document",
+        url: "#",
+      },
+      {
+        title: "Transcriber",
+        icon: Languages,
+        description: "Use AI to transcribe a document",
+        url: "#",
+      },
+      {
+        title: "Translator",
+        icon: Languages,
+        description: "Use AI to translate a document",
+        url: "#",
+      },
     ],
   },
   {
@@ -109,3 +188,16 @@ export const nodeNavItems = [
   },
   { title: "Utils", icon: Wrench, url: "#", items: [] },
 ];
+
+// export const nodeTypes: NodeTypes = nodeNavItems.reduce(
+//   (accumulator: any, currentObject) => {
+//     if (currentObject.items?.length) {
+//       currentObject.items.forEach((item: any) => {
+//         accumulator[item.title] = item.component ?? InputNode;
+//       });
+//     }
+
+//     return accumulator;
+//   },
+//   {}
+// );
