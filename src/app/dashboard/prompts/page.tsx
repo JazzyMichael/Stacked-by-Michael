@@ -1,25 +1,15 @@
-import { AppSidebar } from "@/components/sidebar-dashboard";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
-import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import {
   ClipboardCopy,
   EllipsisVertical,
-  LayoutGrid,
   Plus,
-  Search,
-  Settings2,
   SquarePen,
-  TableProperties,
   Trash2,
 } from "lucide-react";
 

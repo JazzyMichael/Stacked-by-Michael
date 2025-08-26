@@ -1,15 +1,12 @@
 "use client";
 
-import * as React from "react";
-import { ChevronsUpDown, Plus } from "lucide-react";
-
+import { Fragment, useState } from "react";
+import { ChevronsUpDown } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -28,10 +25,10 @@ export function OrgSwitcher({
   }[];
 }) {
   const { isMobile } = useSidebar();
-  const [activeOrg, setActiveOrg] = React.useState(organizations[0]);
+  const [activeOrg, setActiveOrg] = useState(organizations[0]);
 
   if (!activeOrg) {
-    return null;
+    return <></>;
   }
 
   return (
@@ -60,7 +57,7 @@ export function OrgSwitcher({
             sideOffset={4}
           >
             {organizations.map((org, i) => (
-              <React.Fragment key={org.label}>
+              <Fragment key={org.label}>
                 <DropdownMenuItem
                   onClick={() => setActiveOrg(org)}
                   className="gap-2 p-2"
@@ -71,7 +68,7 @@ export function OrgSwitcher({
                   {org.label}
                 </DropdownMenuItem>
                 {i < organizations.length - 1 && <DropdownMenuSeparator />}
-              </React.Fragment>
+              </Fragment>
             ))}
           </DropdownMenuContent>
         </DropdownMenu>

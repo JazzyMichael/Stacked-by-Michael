@@ -303,7 +303,6 @@ export default function App() {
 function ListItem({
   title,
   description,
-  children,
   href = "#",
   image = placeholderImage,
   ...props

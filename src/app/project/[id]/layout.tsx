@@ -1,13 +1,13 @@
 import { ProjectHeader } from "@/components/project-header";
-import { headers } from "next/headers";
-import { redirect } from "next/navigation";
+// import { headers } from "next/headers";
+// import { redirect } from "next/navigation";
 
 export default async function Layout({
   children,
-  params,
-}: {
+}: // params,
+{
   children: React.ReactNode;
-  params: Promise<{ id: string }>;
+  // params: Promise<{ id: string }>;
 }) {
   // const { id } = await params;
 

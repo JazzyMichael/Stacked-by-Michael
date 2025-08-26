@@ -32,6 +32,17 @@ import {
   ImageNode,
 } from "@/components/nodes/input-nodes";
 
+import {
+  ActionNode,
+  OutputNode,
+  TemplateNode,
+  AudioNode as AudioOutputNode,
+  ImageNode as ImageOutputNode,
+} from "@/components/nodes/output-nodes";
+
+import { NodeTypes } from "@xyflow/react";
+import { BaseNode } from "./base-node";
+
 export const nodeNavItems = [
   {
     title: "Inputs",
@@ -200,4 +211,22 @@ export const loadNodes = () => {
   const initialEdges = [{ id: "n1-n2", source: "n1", target: "n2" }];
 
   return { initialNodes, initialEdges };
+};
+
+export const nodeTypes: NodeTypes = {
+  // Inputs
+  Input: InputNode,
+  Files: FilesNode,
+  Trigger: TriggerNode,
+  URL: URLNode,
+  Audio: AudioNode,
+  Image: ImageNode,
+  // Outputs
+  Output: OutputNode,
+  Action: ActionNode,
+  Template: TemplateNode,
+  AudioOutput: AudioOutputNode,
+  ImageOutput: ImageOutputNode,
+  // Default
+  Base: BaseNode,
 };

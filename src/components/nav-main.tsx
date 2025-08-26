@@ -1,14 +1,13 @@
 "use client";
 
-import { ChevronRight, type LucideIcon } from "lucide-react";
-
+import { type LucideIcon } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import {
   SidebarGroup,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { Badge } from "./ui/badge";
 
 export function NavMain({
   items,

@@ -2,17 +2,7 @@ import { memo } from "react";
 import { Input } from "../ui/input";
 import NodeTemplate from "./node-template";
 import { Alert, AlertTitle } from "../ui/alert";
-import {
-  CircleDashed,
-  ImageOff,
-  Layers,
-  Link2Off,
-  MicOff,
-  MicVocal,
-  PanelsTopLeft,
-  SquareCheck,
-  TriangleAlert,
-} from "lucide-react";
+import { Layers, MicVocal, PanelsTopLeft, TriangleAlert } from "lucide-react";
 
 export const OutputNode = memo(({ data, isConnectable }: any) => {
   return (

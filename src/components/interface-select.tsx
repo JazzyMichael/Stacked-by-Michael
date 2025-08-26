@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, CheckCircle, CircleCheck } from "lucide-react";
+import { Check, CircleCheck } from "lucide-react";
 import { Button } from "./ui/button";
 import { useInterfaceSelection } from "@/hooks/InterfaceSelection";
 

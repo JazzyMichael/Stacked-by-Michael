@@ -1,23 +1,8 @@
-import { AppSidebar } from "@/components/sidebar-dashboard";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
-import {
-  TableCaption,
   TableHeader,
   TableRow,
   TableHead,
@@ -25,7 +10,6 @@ import {
   TableCell,
   Table,
 } from "@/components/ui/table";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   EllipsisVertical,
   LayoutGrid,
@@ -98,7 +82,7 @@ export default function Page() {
               <TableCell>
                 <Checkbox className="cursor-pointer" />
               </TableCell>
-              <TableCell>michael's knowledge</TableCell>
+              <TableCell>michael&apos;s knowledge</TableCell>
               <TableCell>219 KB</TableCell>
               <TableCell>No connection</TableCell>
               <TableCell>-</TableCell>

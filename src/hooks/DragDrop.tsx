@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 
-// @ts-ignore
-const DragDropContext = createContext([null, (_) => {}]);
+// @ts-expect-error - dynamic typing for context state setter
+const DragDropContext = createContext([null, (_) => _]);
 
 export const DragDropProvider = ({ children }: { children: ReactNode }) => {
   const [nodeData, setNodeData] = useState(null);

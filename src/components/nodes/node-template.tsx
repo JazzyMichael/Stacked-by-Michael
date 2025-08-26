@@ -14,7 +14,6 @@ export default memo(
     isConnectable: boolean;
     children: ReactNode;
   }) => {
-    console.log(data);
     const id = useNodeId();
     const { setNodes } = useReactFlow();
 
@@ -28,8 +27,8 @@ export default memo(
         <Handle
           type="target"
           position={Position.Left}
-          onConnect={(params) => console.log("handle onConnect", params)}
           isConnectable={isConnectable}
+          onConnect={(params) => console.log("handle connected", params)}
         />
 
         {/* header */}
@@ -69,18 +68,19 @@ export default memo(
         </div>
 
         {/*
-      <input
-        className="nodrag"
-        type="color"
-        onChange={data.onChange}
-        defaultValue={data.color}
-      />
-      */}
+          <input
+            className="nodrag"
+            type="color"
+            onChange={data.onChange}
+            defaultValue={data.color}
+          />
+        */}
 
         <Handle
           type="source"
           position={Position.Right}
           isConnectable={isConnectable}
+          onConnect={(params) => console.log("handle connected", params)}
         />
       </div>
     );

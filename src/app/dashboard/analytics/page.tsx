@@ -1,6 +1,4 @@
-import { AppSidebar } from "@/components/sidebar-dashboard";
 import { DateRangeSelect } from "@/components/date-range-select";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import {
   Select,
   SelectContent,

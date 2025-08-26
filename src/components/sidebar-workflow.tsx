@@ -2,48 +2,22 @@
 
 import {
   Activity,
-  ArrowLeftRight,
-  AudioWaveform,
-  Bell,
-  BookOpen,
-  Bot,
-  ChartNoAxesColumnIncreasing,
   CircleQuestionMark,
   CircleX,
-  Command,
-  Database,
-  Frame,
-  GalleryVerticalEnd,
-  House,
-  Image,
-  Map,
-  Palette,
-  PieChart,
   Pin,
   PinOff,
   Search,
-  Settings2,
-  Sparkles,
-  SquarePen,
-  SquareTerminal,
-  Type,
-  UsersRound,
 } from "lucide-react";
-
-import { NavMain } from "@/components/nav-main";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
-  SidebarRail,
-  SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { NavLogo } from "./nav-logo";
+import { NavMain } from "@/components/nav-main";
 import { Input } from "./ui/input";
 import { useState } from "react";
-import { Nav } from "react-day-picker";
 import { NavCollapsible } from "./nav-collapsible";
 import { nodeNavItems } from "./nodes/data";
 import { Button } from "./ui/button";
@@ -79,17 +53,9 @@ export function WorkflowSidebar({
         } as React.CSSProperties
       }
       className="top-[53px] p-0 bg-white shadow-xl hover:w-[275px] transition-[width]"
-      // [group-data-[collapsible=icon], hover]:w-(--sidebar-width-icon)]
       {...props}
     >
       <SidebarHeader className="flex flex-row justify-between items-center pl-3 pr-0.5 py-1.5 border-b-1">
-        {/* 
-        group-data-[state=collapsed]:flex!
-        group-data-[collapsible=icon]:w-full!
-        
-        group-data-[state=collapsed]:fill-gray-500
-group-data-[state=collapsed]:size-6!
-        */}
         <div>
           {!searchTerm ? (
             <Search stroke="gray" className="size-5" />

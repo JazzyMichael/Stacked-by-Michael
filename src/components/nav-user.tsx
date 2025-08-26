@@ -1,17 +1,6 @@
 "use client";
 
-import {
-  Axe,
-  BadgeCheck,
-  Bell,
-  ChevronsUpDown,
-  CreditCard,
-  Gavel,
-  Hammer,
-  LogOut,
-  Sparkles,
-} from "lucide-react";
-
+import { Axe, Gavel, Hammer, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
