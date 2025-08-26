@@ -36,21 +36,21 @@ export function OrgSwitcher({
 
   return (
     <SidebarMenu>
-      <SidebarMenuItem>
+      <SidebarMenuItem className="px-1.5">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <SidebarMenuButton
-              size="lg"
-              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground mx-auto"
-            >
-              <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
+            <SidebarMenuButton className="group-hover:w-full! group-hover:h-fit! data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground group-hover:px-1! px-1! group-hover:py-2! h-fit">
+              <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-7 items-center justify-center rounded-lg">
                 <activeOrg.logo className="size-4" />
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">{activeOrg.label}</span>
-                <span className="truncate text-xs">Free</span>
+                <span className="truncate text-[13px] font-medium">
+                  Your Organization
+                  {/* {activeOrg.label} */}
+                </span>
+                <span className="truncate text-xs text-gray-600">Free</span>
               </div>
-              <ChevronsUpDown className="ml-auto" />
+              <ChevronsUpDown className="size-5! ml-auto stroke-gray-500" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -59,29 +59,20 @@ export function OrgSwitcher({
             side={isMobile ? "bottom" : "right"}
             sideOffset={4}
           >
-            <DropdownMenuLabel className="text-muted-foreground text-xs">
-              Teams
-            </DropdownMenuLabel>
-            {organizations.map((org, index) => (
-              <DropdownMenuItem
-                key={org.label}
-                onClick={() => setActiveOrg(org)}
-                className="gap-2 p-2"
-              >
-                <div className="flex size-6 items-center justify-center rounded-md border">
-                  <org.logo className="size-3.5 shrink-0" />
-                </div>
-                {org.label}
-                <DropdownMenuShortcut>⌘{index + 1}</DropdownMenuShortcut>
-              </DropdownMenuItem>
+            {organizations.map((org, i) => (
+              <React.Fragment key={org.label}>
+                <DropdownMenuItem
+                  onClick={() => setActiveOrg(org)}
+                  className="gap-2 p-2"
+                >
+                  <div className="flex size-6 items-center justify-center rounded-md border">
+                    <org.logo className="size-3.5 shrink-0" />
+                  </div>
+                  {org.label}
+                </DropdownMenuItem>
+                {i < organizations.length - 1 && <DropdownMenuSeparator />}
+              </React.Fragment>
             ))}
-            <DropdownMenuSeparator />
-            <DropdownMenuItem className="gap-2 p-2">
-              <div className="flex size-6 items-center justify-center rounded-md border bg-transparent">
-                <Plus className="size-4" />
-              </div>
-              <div className="text-muted-foreground font-medium">Add team</div>
-            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>

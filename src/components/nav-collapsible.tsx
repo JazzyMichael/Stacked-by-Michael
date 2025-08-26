@@ -63,15 +63,26 @@ export function NavCollapsible({
           >
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
-                <SidebarMenuButton className="group/nodecategory mb-0">
-                  {item.icon && (
-                    <item.icon
-                      strokeWidth={2}
-                      className="size-[1.1rem]! group-hover/nodecategory:scale-[65%] group-hover/nodecategory:rotate-[360deg] transition-transform duration-500"
-                    />
-                  )}
-                  <span>{item.title}</span>
-                  <ChevronRight className="size-4! stroke-gray-500 ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                <SidebarMenuButton
+                  asChild
+                  className="group/nodecategory mb-0 !w-full overflow-visible"
+                >
+                  <a
+                    href="#"
+                    className="!w-full"
+                    style={{ width: "100% !important" }}
+                  >
+                    {item.icon && (
+                      <item.icon
+                        strokeWidth={2}
+                        className="size-[1.2rem]! group-hover/nodecategory:scale-[65%] group-hover/nodecategory:rotate-[360deg] transition-transform duration-500"
+                      />
+                    )}
+                    <span className="font-medium whitespace-nowrap ml-2">
+                      {item.title}
+                    </span>
+                    <ChevronRight className="size-4! stroke-gray-500 ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                  </a>
                 </SidebarMenuButton>
               </CollapsibleTrigger>
               <CollapsibleContent>

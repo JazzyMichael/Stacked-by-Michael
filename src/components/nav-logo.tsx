@@ -14,7 +14,7 @@ export function NavLogo() {
         src="/stack-ai-logo-text.svg"
         alt="Logo"
         width={56}
-        className="shrink-0 cursor-pointer group-data-[collapsible=icon]:hidden transition-visible duration-300"
+        className="shrink-0 cursor-pointer group-data-[collapsible=icon]:hidden group-hover:block! transition-visible duration-300"
       />
     </a>
   );

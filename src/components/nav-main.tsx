@@ -32,15 +32,19 @@ export function NavMain({
       <SidebarMenu>
         {items.map((item) => (
           <SidebarMenuItem key={item.title}>
-            <SidebarMenuButton asChild>
+            <SidebarMenuButton asChild className="w-full!">
               <a
                 href={item.url}
+                className="!w-full"
+                style={{ width: "100% !important" }}
                 onClick={() =>
                   item.title === "Global Search" && openSearch && openSearch()
                 }
               >
-                <item.icon className="size-6 h-6 w-6 p-0.5 mr-1.5 stroke-[1.5]" />
-                <span className="font-medium">{item.title}</span>
+                <item.icon className="size-6 h-6 w-6 p-0.5 stroke-[1.5]" />
+                <span className="font-medium whitespace-nowrap">
+                  {item.title}
+                </span>
                 {item.badge && (
                   <Badge
                     variant={"secondary"}

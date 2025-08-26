@@ -19,6 +19,7 @@ import {
   Map,
   Palette,
   PieChart,
+  Pin,
   PinOff,
   Search,
   Settings2,
@@ -30,9 +31,6 @@ import {
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
-import { NavUser } from "@/components/nav-user";
-import { OrgSwitcher } from "./org-switcher";
 import {
   Sidebar,
   SidebarContent,
@@ -48,40 +46,7 @@ import { useState } from "react";
 import { Nav } from "react-day-picker";
 import { NavCollapsible } from "./nav-collapsible";
 import { nodeNavItems } from "./nodes/data";
-
-const nodeCategories: string[] = [
-  "Inputs",
-  "Outputs",
-  "LLMs",
-  "KnowledgeBases",
-  "Apps",
-  "Document Readers",
-  "Logic",
-  "Utils",
-];
-
-const nav = nodeCategories.map((category) => ({
-  title: category,
-  url: "#",
-  icon:
-    category === "Inputs"
-      ? Command
-      : category === "Outputs"
-      ? Frame
-      : category === "LLMs"
-      ? Bot
-      : category === "KnowledgeBases"
-      ? BookOpen
-      : category === "Apps"
-      ? GalleryVerticalEnd
-      : category === "Document Readers"
-      ? Image
-      : category === "Logic"
-      ? PieChart
-      : category === "Utils"
-      ? Settings2
-      : CircleQuestionMark,
-}));
+import { Button } from "./ui/button";
 
 const bottomNav = [
   {
@@ -100,7 +65,7 @@ export function WorkflowSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
   const [searchTerm, setSearchTerm] = useState("");
-  const { toggleSidebar } = useSidebar();
+  const { toggleSidebar, state } = useSidebar();
 
   return (
     <Sidebar
@@ -113,20 +78,31 @@ export function WorkflowSidebar({
           // "--sidebar-width": "275px",
         } as React.CSSProperties
       }
-      className="top-[53px] p-0 bg-white shadow-xl hover:w-[275px] [group-data-[collapsible=icon], hover]:w-(--sidebar-width-icon)] transition-all"
+      className="top-[53px] p-0 bg-white shadow-xl hover:w-[275px] transition-[width]"
+      // [group-data-[collapsible=icon], hover]:w-(--sidebar-width-icon)]
       {...props}
     >
-      <SidebarHeader className="flex flex-row justify-between items-center px-4 py-1.5 border-b-1">
-        {!searchTerm ? (
-          <Search stroke="gray" />
-        ) : (
-          <CircleX
-            size={28}
-            stroke="gray"
-            className="cursor-pointer hover:stroke-black transition duration-300 ease-in-out hover:rotate-180"
-            onClick={() => setSearchTerm("")}
-          />
-        )}
+      <SidebarHeader className="flex flex-row justify-between items-center pl-3 pr-0.5 py-1.5 border-b-1">
+        {/* 
+        group-data-[state=collapsed]:flex!
+        group-data-[collapsible=icon]:w-full!
+        
+        group-data-[state=collapsed]:fill-gray-500
+group-data-[state=collapsed]:size-6!
+        */}
+        <div>
+          {!searchTerm ? (
+            <Search stroke="gray" className="size-5" />
+          ) : (
+            <CircleX
+              size={28}
+              stroke="gray"
+              className="cursor-pointer hover:stroke-black transition duration-300 ease-in-out hover:rotate-180"
+              onClick={() => setSearchTerm("")}
+            />
+          )}
+        </div>
+
         <Input
           placeholder="Search nodes..."
           value={searchTerm}
@@ -134,11 +110,28 @@ export function WorkflowSidebar({
           className="font-medium border-none shadow-none focus-visible:border-none focus-visible:ring-0 focus:outline-none"
         />
 
-        <PinOff
-          stroke="gray"
-          className="cursor-pointer hover:stroke-black"
-          onClick={() => toggleSidebar()}
-        />
+        {state === "collapsed" ? (
+          <Button
+            size="icon"
+            variant="ghost"
+            onClick={() => toggleSidebar()}
+            className="group/pin"
+          >
+            <Pin className="stroke-gray-500 group-hover/pin:stroke-black" />
+          </Button>
+        ) : (
+          <Button
+            size="icon"
+            variant="ghost"
+            onClick={() => toggleSidebar()}
+            className="group/pin"
+          >
+            <PinOff
+              stroke="gray"
+              className="stroke-gray-500 group-hover/pin:stroke-black"
+            />
+          </Button>
+        )}
       </SidebarHeader>
 
       <SidebarContent className="scrollbar-hidden">
@@ -148,8 +141,6 @@ export function WorkflowSidebar({
       <SidebarFooter className="pb-3 px-0">
         <NavMain items={bottomNav} />
       </SidebarFooter>
-
-      <SidebarRail />
     </Sidebar>
   );
 }

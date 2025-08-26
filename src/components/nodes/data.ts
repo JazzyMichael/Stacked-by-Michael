@@ -123,6 +123,7 @@ export const nodeNavItems = [
     title: "LLMs",
     icon: MessagesSquare,
     url: "#",
+    disabled: true,
     items: [],
   },
   {
@@ -135,6 +136,7 @@ export const nodeNavItems = [
         icon: FileSearch2,
         description: "Search through your knowledge base",
         url: "#",
+        disabled: true,
       },
       {
         title: "Websites",
@@ -189,15 +191,13 @@ export const nodeNavItems = [
   { title: "Utils", icon: Wrench, url: "#", items: [] },
 ];
 
-// export const nodeTypes: NodeTypes = nodeNavItems.reduce(
-//   (accumulator: any, currentObject) => {
-//     if (currentObject.items?.length) {
-//       currentObject.items.forEach((item: any) => {
-//         accumulator[item.title] = item.component ?? InputNode;
-//       });
-//     }
+export const loadNodes = () => {
+  const initialNodes = [
+    { id: "n1", position: { x: 0, y: 0 }, data: { label: "Node 1" } },
+    { id: "n2", position: { x: 0, y: 100 }, data: { label: "Node 2" } },
+  ];
 
-//     return accumulator;
-//   },
-//   {}
-// );
+  const initialEdges = [{ id: "n1-n2", source: "n1", target: "n2" }];
+
+  return { initialNodes, initialEdges };
+};

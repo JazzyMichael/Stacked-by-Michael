@@ -31,41 +31,42 @@ import { Button } from "./ui/button";
 export function NavProjects({
   projects,
 }: {
-  projects: {
+  projects?: {
     name: string;
     url: string;
     icon: LucideIcon;
   }[];
 }) {
-  const { isMobile } = useSidebar();
+  // const { isMobile } = useSidebar();
 
   return (
     <SidebarGroup className="p-0">
-      <SidebarGroupLabel className="flex flex-col gap-2 mb-4">
-        <span className="flex w-full justify-between">
-          <span className="text-[#09090b] text-thin font-[13px]">Projects</span>
+      <SidebarGroupLabel className="flex flex-col gap-2 mb-4 opacity-100 group-hover:opacity-100! h-fit text-nowrap whitespace-nowrap">
+        <div className="opacity-0">.</div>
+        <div className="flex w-full justify-between group-hover:opacity-100! group-hover:w-full! visible">
+          <span className="text-[#09090b] text-thin text-[13px]">Projects</span>
           <span className="text-gray-400">1 of 2</span>
-        </span>
+        </div>
         <Progress value={50} className="h-1" />
       </SidebarGroupLabel>
       <SidebarMenu>
-        <SidebarMenuItem className="mb-1">
+        <SidebarMenuItem className="mx-2">
           <SidebarMenuButton
             variant="upgrade"
             asChild
-            className="group/upgrade rounded-sm"
+            className="group/upgrade"
           >
             <a
               href="#"
-              className="h-9 bg-[#18181bea] hover:bg-[#18181b9f] text-white font-semibold"
+              className="h-9! px-1! w-full group-data-[collapsible=icon]:px-1! bg-[#18181bea] hover:bg-[#18181b9f] text-white font-semibold rounded-sm group-hover:flex! group-hover:w-full! group-hover:h-9!"
             >
-              <Sparkles className="p-1 mr-1" />
-              Upgrade
-              <ArrowUpRight className="p-[5px] mb-0 ml-0 group-hover/upgrade:mb-2 group-hover/upgrade:ml-2 transition-[margin-bottom,margin-left]" />
+              <Sparkles className="p-0.5 group-hover/upgrade:scale-75 transition-transform" />
+              <span className="group-hover:block!">Upgrade</span>
+              <ArrowUpRight className="group-hover:block! p-[5px] mb-0 ml-0 group-hover/upgrade:mb-2 group-hover/upgrade:ml-2 transition-[margin-bottom,margin-left]" />
             </a>
           </SidebarMenuButton>
         </SidebarMenuItem>
-        {projects.map((item) => (
+        {/* {projects.map((item) => (
           <SidebarMenuItem key={item.name} className="mb-1">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -75,10 +76,6 @@ export function NavProjects({
                     <span className="text-black">{item.name}</span>
                   </a>
                 </SidebarMenuButton>
-                {/* <SidebarMenuAction showOnHover>
-                  <MoreHorizontal />
-                  <span className="sr-only">More</span>
-                </SidebarMenuAction> */}
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 className="w-48 rounded-lg"
@@ -101,7 +98,7 @@ export function NavProjects({
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>
-        ))}
+        ))} */}
       </SidebarMenu>
     </SidebarGroup>
   );

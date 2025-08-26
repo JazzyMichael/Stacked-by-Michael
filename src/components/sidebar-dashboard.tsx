@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import {
   Activity,
   ArrowLeftRight,
@@ -21,6 +20,8 @@ import {
   Image,
   Map,
   Palette,
+  PanelLeftOpen,
+  PanelRightOpen,
   PieChart,
   Search,
   Settings,
@@ -40,6 +41,7 @@ import {
   SidebarHeader,
   SidebarRail,
   SidebarTrigger,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import {
   CommandDialog,
@@ -56,13 +58,14 @@ import { NavProjects } from "@/components/nav-projects";
 import { NavUser } from "@/components/nav-user";
 import { NavLogo } from "./nav-logo";
 import { OrgSwitcher } from "./org-switcher";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Button } from "./ui/button";
 
 const navItems = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: "Michael Mancini",
+    email: "thejazzymichael@gmail.com",
+    avatar: "/cat-avatar.jpg",
   },
   organization: [
     { label: "Missing Name", logo: Type },
@@ -105,17 +108,17 @@ const navItems = {
   ],
   projects: [
     {
-      name: "Notifications",
+      title: "Notifications",
       url: "#",
       icon: Bell,
     },
     {
-      name: "Help & More",
+      title: "Help & More",
       url: "#",
       icon: CircleQuestionMark,
     },
     {
-      name: "System Status",
+      title: "System Status",
       url: "#",
       icon: Activity,
     },
@@ -123,7 +126,8 @@ const navItems = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const [searchDialog, setSearchDialog] = React.useState(false);
+  const [searchDialog, setSearchDialog] = useState(false);
+  const { toggleSidebar, state } = useSidebar();
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -138,10 +142,23 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <>
-      <Sidebar collapsible="icon" {...props}>
-        <SidebarHeader className="flex flex-row justify-between mt-2 mb-4 pl-4">
+      <Sidebar
+        collapsible="icon"
+        className="hover:w-[256px] transition-[width]"
+        {...props}
+      >
+        <SidebarHeader className="flex flex-row justify-between items-center mt-2 mb-2 pl-[14px]">
           <NavLogo />
-          <SidebarTrigger className="group-data-[collapsible=icon]:hidden" />
+          {/* <SidebarTrigger  /> */}
+          {state === "collapsed" ? (
+            <Button size="icon" variant="ghost" onClick={() => toggleSidebar()}>
+              <PanelLeftOpen className="size-4! group-data-[collapsible=icon]:hidden group-hover:inline-flex!" />
+            </Button>
+          ) : (
+            <Button size="icon" variant="ghost" onClick={() => toggleSidebar()}>
+              <PanelRightOpen className="size-4! group-data-[collapsible=icon]:hidden group-hover:inline-flex!" />
+            </Button>
+          )}
         </SidebarHeader>
         <SidebarContent>
           <OrgSwitcher organizations={navItems.organization} />
@@ -150,8 +167,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             openSearch={() => setSearchDialog(true)}
           />
         </SidebarContent>
-        <SidebarFooter>
-          <NavProjects projects={navItems.projects} />
+        <SidebarFooter className="pb-3 px-0">
+          <NavProjects />
+          <NavMain items={navItems.projects} />
           <NavUser user={navItems.user} />
         </SidebarFooter>
         <SidebarRail />
