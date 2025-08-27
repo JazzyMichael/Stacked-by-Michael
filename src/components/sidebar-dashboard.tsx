@@ -10,6 +10,7 @@ import {
   CircleQuestionMark,
   CreditCard,
   Database,
+  Hamburger,
   House,
   Palette,
   PanelLeftOpen,
@@ -55,7 +56,7 @@ const navItems = {
     avatar: "/cat-avatar.jpg",
   },
   organization: [
-    { label: "Missing Name", logo: Type },
+    { label: "Missing Name", logo: Hamburger },
     { label: "Organization Members", logo: UsersRound },
     { label: "Upload Logo", logo: Palette },
   ],

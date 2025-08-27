@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   ChevronDown,
+  CircleUser,
+  Filter,
   LayoutGrid,
   Plus,
+  ScrollText,
   Search,
   Settings2,
   TableProperties,
@@ -23,23 +26,20 @@ import {
   SelectValue,
   SelectItem,
 } from "@/components/ui/select";
-
-const sortOptions = [
-  { label: "Last Viewed", value: "last-viewed" },
-  { label: "Alphabetically", value: "alphabetically" },
-];
-
-const publishedOptions = [
-  { label: "All", value: "all" },
-  { label: "Published", value: "published" },
-  { label: "Unpublished", value: "unpublished" },
-];
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { publishedOptions, sortOptions, projects } from "./data";
 
 export default function Page() {
   return (
-    <>
-      <header className="flex h-16 shrink-0 items-center justify-between px-8 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 bg-white border-b-1 border-gray-200">
-        <h1 className="text-sm font-medium">My Projects</h1>
+    <div className="grid h-screen grid-cols-[248px_1fr] grid-rows-[48px_1fr]">
+      {/* left header */}
+      <div className="flex justify-start items-center pl-5 font-semibold border-b-1 border-r-1 bg-white">
+        <p>Folders</p>
+      </div>
+
+      {/* right header */}
+      <div className="px-6 text-[15px] font-medium border-b-1 flex justify-between items-center bg-white">
+        <p>My Projects</p>
 
         <div>
           <Button size="sm" className="rounded-r-none text-xs">
@@ -60,19 +60,47 @@ export default function Page() {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-      </header>
+      </div>
 
-      <main className="px-8 py-4">
-        {/* top row: search input, view tabs, filter dialog */}
+      {/* left content */}
+      <div className="bg-white border-r-1 overflow-y-auto p-3">
+        <Button
+          variant="outline"
+          className="w-full mb-2 justify-start bg-white"
+        >
+          <Plus className="size-5 stroke-gray-600" /> New Folder
+        </Button>
+
         <div className="flex gap-2">
-          {/* Search Input */}
-          <div className="relative w-full">
-            <Input placeholder="Search" className="pl-8 bg-white" />
-            <Search className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 opacity-50 select-none" />
-          </div>
+          <Input placeholder="Search folders" />
 
-          {/* Grid & List Tabs */}
-          <Tabs defaultValue="list">
+          <Button variant="outline" size="icon" className="bg-white">
+            <Filter className="size-4" />
+          </Button>
+        </div>
+
+        <div id="list" className="flex flex-col gap-2 pt-3">
+          <div className="flex items-center gap-3 text-[15px] hover:bg-gray-200 px-3 py-1 rounded-sm cursor-pointer">
+            <CircleUser className="size-5" strokeWidth={1.5} /> My Projects
+          </div>
+          <div className="flex items-center gap-3 text-[15px] hover:bg-gray-200 px-3 py-1 rounded-sm cursor-pointer">
+            <ScrollText className="size-5" strokeWidth={1.5} /> All General
+          </div>
+        </div>
+      </div>
+
+      {/* right content */}
+      <div className="px-8 py-4">
+        <Tabs defaultValue="grid">
+          {/* top row: search input, view tabs, filter dialog */}
+          <div className="flex gap-2">
+            {/* Search Input */}
+            <div className="relative w-full">
+              <Input placeholder="Search" className="pl-8 bg-white" />
+              <Search className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 opacity-50 select-none" />
+            </div>
+
+            {/* View Select */}
             <TabsList>
               <TabsTrigger value="grid" className="cursor-pointer">
                 <LayoutGrid />
@@ -81,50 +109,96 @@ export default function Page() {
                 <TableProperties />
               </TabsTrigger>
             </TabsList>
-          </Tabs>
 
-          {/* Time Period Select */}
-          <Select defaultValue={sortOptions[0].value}>
-            <SelectTrigger className="cursor-pointer min-w-36">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                {sortOptions.map((item) => (
-                  <SelectItem key={item.value} value={item.value}>
-                    {item.label}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+            {/* Time Period Select */}
+            <Select defaultValue={sortOptions[0].value}>
+              <SelectTrigger className="cursor-pointer min-w-36">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {sortOptions.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
 
-          {/* Published Select */}
-          <Select defaultValue={publishedOptions[0].value}>
-            <SelectTrigger className="cursor-pointer min-w-36">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                {publishedOptions.map((item) => (
-                  <SelectItem key={item.value} value={item.value}>
-                    {item.label}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+            {/* Published Select */}
+            <Select defaultValue={publishedOptions[0].value}>
+              <SelectTrigger className="cursor-pointer min-w-36">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {publishedOptions.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
 
-          {/* Filter */}
-          <Button variant="outline" className="cursor-pointer">
-            <Settings2 />
-          </Button>
-        </div>
+            {/* Filter */}
+            <Button variant="outline" className="cursor-pointer">
+              <Settings2 />
+            </Button>
+          </div>
 
-        <Button asChild className="mt-5">
-          <a href="/project/123">View Project</a>
-        </Button>
-      </main>
-    </>
+          {/* Main Content */}
+          <TabsContent value="grid">
+            <div className="pt-5 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4">
+              {projects.map((project) => (
+                <a
+                  key={project.id}
+                  href={`/project/${project.id}`}
+                  className="w-full h-36 bg-white rounded-sm border-1 hover:border-gray-400 flex flex-col justify-between p-4 cursor-pointer"
+                >
+                  <p className="text-sm font-semibold">{project.label}</p>
+                  <div className="*:data-[slot=avatar]:ring-background flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale">
+                    <Avatar>
+                      <AvatarImage
+                        src="https://github.com/shadcn.png"
+                        alt="@shadcn"
+                      />
+                      <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                    <Avatar>
+                      <AvatarImage
+                        src="https://github.com/leerob.png"
+                        alt="@leerob"
+                      />
+                      <AvatarFallback>LR</AvatarFallback>
+                    </Avatar>
+                    <Avatar>
+                      <AvatarImage
+                        src="https://github.com/evilrabbit.png"
+                        alt="@evilrabbit"
+                      />
+                      <AvatarFallback>ER</AvatarFallback>
+                    </Avatar>
+                    <Avatar>
+                      <AvatarImage
+                        src="https://github.com/leerob.png"
+                        alt="@leerob"
+                      />
+                      <AvatarFallback>LR</AvatarFallback>
+                    </Avatar>
+                    <Avatar className="bg-white flex items-center justify-center text-xs border-1">
+                      {project.avatarNumber}
+                    </Avatar>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="list">List</TabsContent>
+        </Tabs>
+      </div>
+    </div>
   );
 }
