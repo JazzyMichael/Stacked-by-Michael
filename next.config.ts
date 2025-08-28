@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
         destination: "/dashboard/projects",
         permanent: true,
       },
+      {
+        source: "/auth",
+        destination: "/auth/login",
+        permanent: true,
+      },
     ];
   },
 };

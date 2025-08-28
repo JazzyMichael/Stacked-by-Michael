@@ -428,7 +428,7 @@ export function DataTable({ data: initialData }: { data: TableSchema[] }) {
                     <TableRow
                       key={row.id}
                       data-state={row.getIsSelected() && "selected"}
-                      className="hover:bg-gray-300"
+                      className="hover:bg-slate-100"
                     >
                       {row.getVisibleCells().map((cell) => (
                         <TableCell key={cell.id}>

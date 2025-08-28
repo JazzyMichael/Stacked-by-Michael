@@ -17,9 +17,9 @@ export function NavProjects() {
         <div className="opacity-0">.</div>
         <div className="flex w-full justify-between group-hover:opacity-100! group-hover:w-full! visible">
           <span className="text-[#09090b] text-thin text-[13px]">Projects</span>
-          <span className="text-gray-400">1 of 2</span>
+          <span className="text-gray-400">2 of 3</span>
         </div>
-        <Progress value={50} className="h-1" />
+        <Progress value={67} className="h-1" />
       </SidebarGroupLabel>
       <SidebarMenu>
         <SidebarMenuItem className="mx-2">
