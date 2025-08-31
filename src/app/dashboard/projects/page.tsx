@@ -27,7 +27,8 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { publishedOptions, sortOptions, projects } from "./data";
+import { publishedOptions, sortOptions, projects, tabledata } from "./data";
+import { DataTable } from "./data-table";
 
 export default function Page() {
   return (
@@ -42,8 +43,10 @@ export default function Page() {
         <p>My Projects</p>
 
         <div>
-          <Button size="sm" className="rounded-r-none text-xs">
-            <Plus /> New Project
+          <Button size="sm" className="rounded-r-none text-xs" asChild>
+            <a href="/project/new-project">
+              <Plus /> New Project
+            </a>
           </Button>
 
           <DropdownMenu>
@@ -196,7 +199,9 @@ export default function Page() {
             </div>
           </TabsContent>
 
-          <TabsContent value="list">List</TabsContent>
+          <TabsContent value="list">
+            <DataTable data={tabledata} />
+          </TabsContent>
         </Tabs>
       </div>
     </div>

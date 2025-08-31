@@ -309,10 +309,8 @@ export function DataTable({ data: initialData }: { data: TableSchema[] }) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [pagination, setPagination] = React.useState({
     pageIndex: 0,
-    pageSize: 15,
+    pageSize: 10,
   });
-  // Use this to avoid rendering the entire table on pageSize changes
-  const [pageSize, setPageSize] = React.useState(15);
 
   const table = useReactTable({
     data,
@@ -477,7 +475,7 @@ export function DataTable({ data: initialData }: { data: TableSchema[] }) {
             </Button>
           </div>
           <div className="flex gap-2">
-            <Button
+            {/* <Button
               variant={pageSize === 15 ? "outline" : "ghost"}
               className="h-7! px-2! text-xs transition-none"
               onClick={() => setPageSize(15)}
@@ -497,7 +495,7 @@ export function DataTable({ data: initialData }: { data: TableSchema[] }) {
               onClick={() => setPageSize(100)}
             >
               100 {pageSize === 100 && "rows"}
-            </Button>
+            </Button> */}
           </div>
         </div>
       </TabsContent>

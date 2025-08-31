@@ -1,0 +1,58 @@
+"use client";
+
+import { LabelList, Pie, PieChart } from "recharts";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartLegend,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
+import { phoneData } from "./data";
+
+const chartConfig = {
+  share: {
+    label: "Market Share ",
+  },
+  iphone: {
+    label: "iPhone",
+    color: "var(--chart-2)",
+  },
+  android: {
+    label: "Android",
+    color: "var(--chart-3)",
+  },
+} satisfies ChartConfig;
+
+export function PhoneChart() {
+  return (
+    <ChartContainer
+      config={chartConfig}
+      className="[&_.recharts-text]:fill-background mx-auto aspect-square max-h-[250px]"
+    >
+      <PieChart>
+        <ChartTooltip
+          content={<ChartTooltipContent nameKey="share" hideLabel />}
+        />
+        <Pie data={phoneData} dataKey="share">
+          <LabelList
+            dataKey="phone"
+            className="fill-background"
+            stroke="none"
+            fontSize={12}
+            formatter={(value: keyof typeof chartConfig) =>
+              chartConfig[value]?.label
+            }
+          />
+        </Pie>
+      </PieChart>
+    </ChartContainer>
+  );
+}

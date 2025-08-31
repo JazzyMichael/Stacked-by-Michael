@@ -38,15 +38,15 @@ export default function Page() {
             this).
           </p>
           <p>
-            I adopted this beauty when I began my career as a software engineer
-            in 2018 making touch-screen kiosk apps for an early stage startup.
-            Her name is <span className="font-medium">Jazzy</span> and I
-            absolutely love it. Jazz is about understanding all the factors at
-            play and deliberately breaking the common structures of music theory
-            to explore sounds and experiences based on curiosity; I use this as
-            a metaphor for my approach to life, as I strongly value curiousity
-            and integrity and taking risks. I will risk sounding awful for the
-            potential to sound incredible.
+            I adopted this beauty when I began my career in 2018 building a
+            touch-screen kiosk for an early stage startup. Her name is{" "}
+            <span className="font-medium">Jazzy</span> and I absolutely love it.
+            Jazz is about understanding all the factors at play and deliberately
+            breaking the common structures of music theory to explore sounds and
+            experiences based on curiosity; I use this as a metaphor for my
+            approach to life, as I strongly value curiousity and integrity and
+            taking risks. I will risk sounding awful for the potential to sound
+            incredible.
           </p>
           <p>
             All this to say, I have a great{" "}
@@ -58,9 +58,9 @@ export default function Page() {
               {" "}
               Let&apos;s Connect!
             </span>{" "}
-            and talk about tech, business, music, cats, and if I&apos;m a good
-            fit to join StackAI as a high-performing software engineer
-            passionate about apps & ai!
+            and talk about tech, business, cats, and the open opportunities to
+            join StackAI as a high-performing software engineer passionate about
+            apps & ai!
           </p>
           <p>thejazzymichael@gmail.com | 215-262-7000</p>
         </div>

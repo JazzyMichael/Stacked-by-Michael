@@ -75,7 +75,12 @@ export default function WorkflowCanvas() {
         position: { x: number; y: number };
         data: { label: string };
       }>[]
-    ) => setNodes((nodesSnapshot) => applyNodeChanges(changes, nodesSnapshot)),
+    ) =>
+      setNodes((nodesSnapshot) => {
+        const newNodes = applyNodeChanges(changes, nodesSnapshot);
+        console.log({ newNodes });
+        return newNodes;
+      }),
     []
   );
 
