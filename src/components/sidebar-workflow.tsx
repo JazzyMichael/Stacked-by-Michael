@@ -61,7 +61,7 @@ export function WorkflowSidebar({
             <Search stroke="gray" className="size-5" />
           ) : (
             <CircleX
-              size={28}
+              size={24}
               stroke="gray"
               className="cursor-pointer hover:stroke-black transition duration-300 ease-in-out hover:rotate-180"
               onClick={() => setSearchTerm("")}
@@ -100,7 +100,7 @@ export function WorkflowSidebar({
         )}
       </SidebarHeader>
 
-      <SidebarContent className="scrollbar-hidden">
+      <SidebarContent className="scrollbar-hidden overflow-y-auto">
         <NavCollapsible items={nodeNavItems} />
       </SidebarContent>
 

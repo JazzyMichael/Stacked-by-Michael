@@ -1,24 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { catPics } from "@/lib/data";
 import { Plus } from "lucide-react";
 import Image from "next/image";
 
 export default function Page() {
-  const catPics = [
-    { name: "curious-desk.jpg", width: 3072, height: 4080 },
-    { name: "thinking-desk.jpg", width: 3072, height: 4080 },
-    { name: "resting-desk.jpg", width: 3072, height: 4080 },
-
-    { name: "yawning.jpg", width: 2048, height: 2720 },
-    { name: "throne.jpg", width: 1932, height: 2898 },
-
-    { name: "sleeping-couch.jpg", width: 1932, height: 2898 },
-
-    { name: "belly-chair.jpg", width: 1512, height: 2688 },
-    { name: "close-up-face.jpg", width: 1932, height: 4000 },
-    { name: "face-chair.jpg", width: 1512, height: 2688 },
-    { name: "serious-desk.jpg", width: 1512, height: 2688 },
-  ];
-
   return (
     <>
       <header className="flex h-12 border-b-1 shrink-0 items-center justify-between px-8 transition-[width,height] ease-linear bg-white">
@@ -66,11 +51,11 @@ export default function Page() {
         </div>
 
         <div className="grid gap-5 items-center pt-8 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-          {catPics.map(({ name, width, height }) => (
-            <a key={name} href={`/cat/${name}`} target="_blank">
+          {catPics.map(({ label, file, width, height }) => (
+            <a key={file} href={`/cat/${file}`} target="_blank">
               <Image
-                src={`/cat/${name}`}
-                alt={name.split(".")[0]}
+                src={`/cat/${file}`}
+                alt={label}
                 width={width}
                 height={height}
                 className="rounded-lg border-white border-2 hover:border-slate-600"

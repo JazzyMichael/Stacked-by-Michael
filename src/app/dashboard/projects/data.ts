@@ -12,12 +12,12 @@ export const publishedOptions = [
 export const projects = [
   {
     label: "Work Experience",
-    id: "010101010",
+    id: "career",
     avatarNumber: "+9",
   },
   {
     label: "Node Template Showcase",
-    id: "888888888",
+    id: "all-nodes",
     avatarNumber: "+4",
   },
 ];

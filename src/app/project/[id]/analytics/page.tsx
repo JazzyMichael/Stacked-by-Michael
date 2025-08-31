@@ -8,7 +8,6 @@ import {
   SelectValue,
   SelectItem,
 } from "@/components/ui/select";
-import { Download, Info, Settings, Sparkles } from "lucide-react";
 import {
   Menubar,
   MenubarContent,
@@ -16,10 +15,8 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "@/components/ui/menubar";
-import { ScaleAIChart } from "@/components/charts/scale-ai-chart";
-import { AIRevenueChart } from "@/components/charts/ai-revenue-chart";
-import { AIUsageChart } from "@/components/charts/ai-usage-chart";
-import { PhoneChart } from "@/components/charts/phone-chart";
+import { Download, Settings, Sparkles } from "lucide-react";
+import Charts from "@/components/charts/charts";
 
 const items = [
   { label: "Today", value: "today" },
@@ -92,61 +89,7 @@ export default function Page() {
         </div>
       </div>
 
-      {/* Charts Grid */}
-      <div
-        className="
-                  grid
-                  gap-8
-                  grid-cols-1
-                  md:grid-cols-2
-                  xl:grid-cols-4
-                  p-8
-                "
-      >
-        <div className="grow border-1 shadow-bot rounded-lg shadow-md bg-white">
-          <div className="bg-[#fafafa] h-9 text-sm border-b-1 rounded-t-lg flex items-center justify-start px-4 gap-2 text-gray-700 font-medium">
-            AI Usage{" "}
-            <Info className="stroke-gray-400 size-[14px] cursor-pointer" />
-          </div>
-
-          <div className="min-h-[180px] bg-white rounded-b-lg">
-            <AIUsageChart />
-          </div>
-        </div>
-
-        <div className="grow border-1 shadow-bot rounded-lg shadow-md bg-white">
-          <div className="bg-[#fafafa] h-9 text-sm border-b-1 rounded-t-lg flex items-center justify-start px-4 gap-2 text-gray-700 font-medium">
-            AI Revenue{" "}
-            <Info className="stroke-gray-400 size-[14px] cursor-pointer" />
-          </div>
-
-          <div className="min-h-[180px] bg-white rounded-b-lg">
-            <AIRevenueChart />
-          </div>
-        </div>
-
-        <div className="h-fit border-1 shadow-bot rounded-lg shadow-md bg-white">
-          <div className="bg-[#fafafa] h-9 text-sm border-b-1 rounded-t-lg flex items-center justify-start px-4 gap-2 text-gray-700 font-medium">
-            Phones{" "}
-            <Info className="stroke-gray-400 size-[14px] cursor-pointer" />
-          </div>
-
-          <div className="min-h-[180px] bg-white rounded-b-lg">
-            <PhoneChart />
-          </div>
-        </div>
-
-        <div className="h-fit border-1 shadow-bot rounded-lg shadow-md">
-          <div className="bg-[#fafafa] h-9 text-sm border-b-1 rounded-t-lg flex items-center justify-start px-4 gap-2 text-gray-700 font-medium">
-            Scale AI{" "}
-            <Info className="stroke-gray-400 size-[14px] cursor-pointer" />
-          </div>
-
-          <div className="min-h-[180px] bg-white rounded-b-lg">
-            <ScaleAIChart />
-          </div>
-        </div>
-      </div>
+      <Charts />
     </div>
   );
 }

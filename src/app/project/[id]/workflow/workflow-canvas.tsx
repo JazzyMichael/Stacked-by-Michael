@@ -18,15 +18,35 @@ import { useState, useCallback } from "react";
 import { File, Plus, Redo, Sparkles, Undo } from "lucide-react";
 import { useDragDrop } from "@/hooks/DragDrop";
 import { generateID } from "@/lib/utils";
-import { loadNodes, nodeTypes } from "@/components/nodes/data";
+import { nodeTypes } from "@/components/nodes/data";
 
-const { initialNodes, initialEdges } = loadNodes();
-
-export default function WorkflowCanvas() {
-  const [nodes, setNodes] = useState(initialNodes);
-  const [edges, setEdges] = useState(initialEdges);
+export default function WorkflowCanvas({
+  initialNodes = [],
+  initialEdges = [],
+}: {
+  initialNodes?: any[];
+  initialEdges?: any[];
+}) {
+  const [nodes, setNodes] = useState<any[]>(initialNodes);
+  const [edges, setEdges] = useState<any[]>(initialEdges);
   const [nodeData] = useDragDrop();
   const { screenToFlowPosition } = useReactFlow();
+
+  const onNodeDataChange = (event: any) => {
+    const id = event?.id;
+    const key = event?.key;
+    const val = event?.val;
+
+    if (id && key && val) {
+      setNodes((cur) =>
+        cur.map((node) => {
+          if (node.id !== id) return node;
+
+          return { ...node, data: { ...node.data, [key]: val } };
+        })
+      );
+    }
+  };
 
   const onDragOver = useCallback((event: React.DragEvent) => {
     event.preventDefault();
@@ -47,13 +67,20 @@ export default function WorkflowCanvas() {
         y: event.clientY,
       });
 
+      const id = generateID();
+
       const newNode = {
-        id: generateID(),
+        id,
         position,
         // @ts-expect-error
         type: nodeData.type,
-        // @ts-expect-error
-        data: { label: nodeData.title ?? "Custom", ...nodeData },
+        data: {
+          // @ts-expect-error
+          label: nodeData.title ?? "Custom",
+          id,
+          ...nodeData,
+          onNodeDataChange,
+        },
       };
 
       setNodes((nds) => nds.concat(newNode));
@@ -73,14 +100,9 @@ export default function WorkflowCanvas() {
       changes: NodeChange<{
         id: string;
         position: { x: number; y: number };
-        data: { label: string };
+        data: { [key: string]: string };
       }>[]
-    ) =>
-      setNodes((nodesSnapshot) => {
-        const newNodes = applyNodeChanges(changes, nodesSnapshot);
-        console.log({ newNodes });
-        return newNodes;
-      }),
+    ) => setNodes((nodesSnapshot) => applyNodeChanges(changes, nodesSnapshot)),
     []
   );
 
@@ -128,11 +150,11 @@ export default function WorkflowCanvas() {
             <Redo />
           </ControlButton>
 
-          <ControlButton>
+          <ControlButton onClick={() => console.log({ nodes, edges })}>
             <File />
           </ControlButton>
         </Controls>
-        <Background variant={BackgroundVariant.Dots} gap={6} size={0.5} />
+        <Background variant={BackgroundVariant.Dots} gap={12} size={1} />
       </ReactFlow>
     </div>
   );

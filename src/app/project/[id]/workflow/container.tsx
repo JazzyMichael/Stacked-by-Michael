@@ -6,7 +6,11 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { WorkflowSidebar } from "@/components/sidebar-workflow";
 import WorkflowCanvas from "./workflow-canvas";
 
-export default function Container() {
+export default function Container({
+  data,
+}: {
+  data?: { nodes: any[]; edges: any[] };
+}) {
   return (
     <SidebarProvider
       style={
@@ -18,7 +22,10 @@ export default function Container() {
       <ReactFlowProvider>
         <DragDropProvider>
           <WorkflowSidebar />
-          <WorkflowCanvas />
+          <WorkflowCanvas
+            initialNodes={data?.nodes}
+            initialEdges={data?.edges}
+          />
         </DragDropProvider>
       </ReactFlowProvider>
     </SidebarProvider>

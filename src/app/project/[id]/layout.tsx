@@ -4,18 +4,14 @@ import { ProjectHeader } from "@/components/project-header";
 
 export default async function Layout({
   children,
-}: // params,
+}: // params
 {
   children: React.ReactNode;
   // params: Promise<{ id: string }>;
 }) {
   // const { id } = await params;
 
-  // const headersList = await headers();
-  // console.log("Headers:", headersList);
-  // const pathname = headersList.get("referer") ?? "";
-
-  // load project data, redirect if invalid id
+  // display project id in header
 
   // console.log("Project ID:", id);
 

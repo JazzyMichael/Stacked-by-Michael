@@ -44,7 +44,7 @@ export default function Page() {
 
         <div>
           <Button size="sm" className="rounded-r-none text-xs" asChild>
-            <a href="/project/new-project">
+            <a href="/project/blank">
               <Plus /> New Project
             </a>
           </Button>

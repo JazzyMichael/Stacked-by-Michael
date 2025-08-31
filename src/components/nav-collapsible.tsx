@@ -45,7 +45,10 @@ export function NavCollapsible({
     if (category === "Outputs" && item === "Audio") return "AudioOutput";
     if (category === "Outputs" && item === "Image") return "ImageOutput";
 
-    // Default/fallback
+    // Handle custom names
+    if (category === "Apps") return "CatPictures";
+
+    // Default
     if (category !== "Inputs" && category !== "Outputs") return "Base";
 
     return item;
@@ -71,6 +74,7 @@ export function NavCollapsible({
                     href="#"
                     className="!w-full"
                     style={{ width: "100% !important" }}
+                    draggable="false"
                   >
                     {item.icon && (
                       <item.icon

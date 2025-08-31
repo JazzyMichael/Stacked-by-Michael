@@ -2,7 +2,8 @@ import { memo, ReactNode, useCallback } from "react";
 import { Handle, Position, useNodeId, useReactFlow } from "@xyflow/react";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
-import { Clock, EllipsisVertical } from "lucide-react";
+import { Clock, EllipsisVertical, Trash2 } from "lucide-react";
+import { nodeTitleIconMap } from "./data";
 
 export default memo(
   ({
@@ -22,19 +23,23 @@ export default memo(
       setNodes((prevNodes) => prevNodes.filter((node) => node.id !== id));
     }, [id, setNodes]);
 
+    const Icon = nodeTitleIconMap.get(data.title);
+
     return (
       <div className="group/nodetemplate bg-white border-1 shadow-md rounded-md p-2 flex flex-col justify-between gap-2 w-72">
-        <Handle
-          type="target"
-          position={Position.Left}
-          isConnectable={isConnectable}
-          onConnect={(params) => console.log("handle connected", params)}
-        />
+        {data.category !== "Inputs" && (
+          <Handle
+            type="target"
+            position={Position.Left}
+            isConnectable={isConnectable}
+            onConnect={(params) => console.log("handle connected", params)}
+          />
+        )}
 
         {/* header */}
         <div className="flex items-center gap-2">
           <div className="rounded-sm bg-accent border-1 p-1.5">
-            {data.icon && <data.icon className="size-3.5 stroke-gray-600" />}
+            {Icon && <Icon className="size-3.5 stroke-gray-600" />}
           </div>
           <div className="font-medium">{data.title ?? "Node"}</div>
 
@@ -46,7 +51,7 @@ export default memo(
             title="Node Actions"
             onClick={handleDelete}
           >
-            <EllipsisVertical className="size-4 stroke-gray-600" />
+            <Trash2 className="size-4 stroke-gray-600 hover:stroke-black" />
           </Button>
         </div>
 

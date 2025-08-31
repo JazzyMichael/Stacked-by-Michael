@@ -121,3 +121,24 @@ export const interfaces: Interface[] = [
     ],
   },
 ];
+
+export const catPics = [
+  { label: "Curious", file: "curious-desk.jpg", width: 3072, height: 4080 },
+  { label: "Thinking", file: "thinking-desk.jpg", width: 3072, height: 4080 },
+  { label: "Resting", file: "resting-desk.jpg", width: 3072, height: 4080 },
+
+  { label: "Yawning", file: "yawning.jpg", width: 2048, height: 2720 },
+  { label: "Throne", file: "throne.jpg", width: 1932, height: 2898 },
+
+  {
+    label: "Sleeping",
+    file: "sleeping-couch.jpg",
+    width: 1932,
+    height: 2898,
+  },
+
+  { label: "Belly", file: "belly-chair.jpg", width: 1512, height: 2688 },
+  { label: "Face", file: "close-up-face.jpg", width: 1932, height: 4000 },
+  { label: "Eager", file: "face-chair.jpg", width: 1512, height: 2688 },
+  { label: "Serious", file: "serious-desk.jpg", width: 1512, height: 2688 },
+];

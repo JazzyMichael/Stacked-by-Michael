@@ -12,7 +12,6 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
-import { CircleHelpIcon, CircleIcon, CircleCheckIcon } from "lucide-react";
 
 const placeholderImage =
   "https://framerusercontent.com/images/CXQ0y8QtXsQfoTEbe9iuOSDLJE.svg";
@@ -405,7 +404,7 @@ function Logo() {
   return (
     <a
       href="/projects"
-      className="flex flex-row items-center justify-start gap-2"
+      className="flex flex-row items-center justify-start gap-2 z-50"
     >
       <img
         src="/stack-ai-logo-image.svg"
@@ -420,9 +419,13 @@ function Logo() {
 
 function Buttons() {
   return (
-    <div className="hidden md:flex gap-2">
-      <Button variant="secondary" className="bg-gray-200 hover:bg-gray-300">
-        Login
+    <div className="hidden md:flex gap-2 z-50">
+      <Button
+        variant="secondary"
+        className="bg-gray-200 hover:bg-gray-300"
+        asChild
+      >
+        <a href="/auth/login">Login</a>
       </Button>
       <Button>Get a demo</Button>
     </div>
