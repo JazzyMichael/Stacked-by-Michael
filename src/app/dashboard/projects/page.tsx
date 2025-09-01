@@ -115,7 +115,7 @@ export default function Page() {
 
             {/* Time Period Select */}
             <Select defaultValue={sortOptions[0].value}>
-              <SelectTrigger className="cursor-pointer min-w-36">
+              <SelectTrigger className="cursor-pointer bg-white min-w-36">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -131,7 +131,7 @@ export default function Page() {
 
             {/* Published Select */}
             <Select defaultValue={publishedOptions[0].value}>
-              <SelectTrigger className="cursor-pointer min-w-36">
+              <SelectTrigger className="cursor-pointer bg-white min-w-36">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -146,7 +146,7 @@ export default function Page() {
             </Select>
 
             {/* Filter */}
-            <Button variant="outline" className="cursor-pointer">
+            <Button variant="outline" className="bg-white">
               <Settings2 />
             </Button>
           </div>

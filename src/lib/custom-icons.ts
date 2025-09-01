@@ -1,6 +1,6 @@
 import { createLucideIcon } from "lucide-react";
 
-export const PythonIcon = createLucideIcon("foobar", [
+export const PythonIcon = createLucideIcon("python", [
   [
     "path",
     {
@@ -55,6 +55,60 @@ export const PythonIcon = createLucideIcon("foobar", [
     {
       d: "m9.74 2.9-.31-.74-.74-.31-.74.31-.31.74.08.41.56.56.41.09.74-.31.23-.34z",
       key: "1kfudp",
+    },
+  ],
+]);
+
+// Upgrade Button Icon
+// <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+// <g id="div">
+// <path id="shape" fill-rule="evenodd" clip-rule="evenodd" d="M11.697 7.04041L11.5 6.95599L11.303 7.04041L4.30304 10.0404L4 10.1703V10.5V19V19.3297L4.30304 19.4596L11.303 22.4596L11.5 22.544L11.697 22.4596L18.697 19.4596L19 19.3297V19V10.5V10.1703L18.697 10.0404L11.697 7.04041ZM5 11.2582V18.6703L11 21.2417V13.8297L5 11.2582ZM12 21.2417L18 18.6703V11.2582L12 13.8297V21.2417ZM17.2307 10.5L11.5 8.04396L5.7693 10.5L11.5 12.956L17.2307 10.5Z" fill="white" fill-opacity="0.6"/>
+// <path id="shape_2" d="M15.5 0.25C15.5 1.75 14 3.25 12.5 3.25C14 3.25 15.5 4.75 15.5 6.25C15.5 4.75 17 3.25 18.5 3.25C17 3.25 15.5 1.75 15.5 0.25Z" stroke="white" stroke-opacity="0.6" stroke-linecap="round"/>
+// <path id="shape_3" d="M7.5 2.25C7.5 3.25 6 4.75 5 4.75C6 4.75 7.5 6.25 7.5 7.25C7.5 6.25 9 4.75 10 4.75C9 4.75 7.5 3.25 7.5 2.25Z" stroke="white" stroke-opacity="0.6" stroke-linecap="round"/>
+// </g>
+// </svg>
+
+export const BoxSparkle = createLucideIcon("boxsparkle", [
+  [
+    "path",
+    {
+      d: "M11.697 7.0404L11.5 6.956L11.303 7.0404L4.303 10.0404L4 10.1703V10.5V19V19.3297L4.303 19.4596L11.303 22.4596L11.5 22.544L11.697 22.4596L18.697 19.4596L19 19.3297V19V10.5V10.1703L18.697 10.0404L11.697 7.0404Z",
+      key: "1rgazz",
+    },
+  ],
+  [
+    "path",
+    {
+      d: "M12 21.2417L18 18.6703V11.2582L12 13.8297V21.2417Z",
+      key: "1opscq",
+    },
+  ],
+  [
+    "path",
+    {
+      d: "M15.5 0.25C15.5 1.75 14 3.25 12.5 3.25C14 3.25 15.5 4.75 15.5 6.25C15.5 4.75 17 3.25 18.5 3.25C17 3.25 15.5 1.75 15.5 0.25Z",
+      key: "f8vw1z",
+    },
+  ],
+  [
+    "path",
+    {
+      d: "M17.2307 10.5L11.5 8.044L5.7693 10.5L11.5 12.956L17.2307 10.5Z",
+      key: "jkghqu",
+    },
+  ],
+  [
+    "path",
+    {
+      d: "M5 11.2582V18.6703L11 21.2417V13.8297L5 11.2582Z",
+      key: "1s3u4z",
+    },
+  ],
+  [
+    "path",
+    {
+      d: "M7.5 2.25C7.5 3.25 6 4.75 5 4.75C6 4.75 7.5 6.25 7.5 7.25C7.5 6.25 9 4.75 10 4.75C9 4.75 7.5 3.25 7.5 2.25Z",
+      key: "5ls3d7",
     },
   ],
 ]);

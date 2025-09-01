@@ -33,8 +33,8 @@ export function ProjectHeader() {
       </div>
 
       <div className="flex items-end gap-4 text-[13.5px] font-medium">
-        <Folder className="size-[18px] stroke-gray-500 cursor-pointer" />{" "}
-        project name / directory <Switch />
+        <Folder className="size-[18px] stroke-gray-500 cursor-pointer" />
+        Career Outline <Switch />
       </div>
 
       <div className="flex items-center gap-2">

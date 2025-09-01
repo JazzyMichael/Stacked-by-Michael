@@ -142,3 +142,51 @@ export const catPics = [
   { label: "Eager", file: "face-chair.jpg", width: 1512, height: 2688 },
   { label: "Serious", file: "serious-desk.jpg", width: 1512, height: 2688 },
 ];
+
+export const iconColors = [
+  "group-hover/nodecategory:stroke-emerald-500",
+  "group-hover/nodecategory:stroke-teal-500",
+  "group-hover/nodecategory:stroke-cyan-500",
+  "group-hover/nodecategory:stroke-sky-500",
+  "group-hover/nodecategory:stroke-blue-500",
+  "group-hover/nodecategory:stroke-indigo-500",
+  "group-hover/nodecategory:stroke-purple-500",
+  "group-hover/nodecategory:stroke-violet-500",
+  "group-hover/nodecategory:stroke-fuchsia-500",
+];
+
+export const textColors = [
+  "group-hover/nodecategory:text-emerald-800",
+  "group-hover/nodecategory:text-teal-800",
+  "group-hover/nodecategory:text-cyan-800",
+  "group-hover/nodecategory:text-sky-800",
+  "group-hover/nodecategory:text-blue-800",
+  "group-hover/nodecategory:text-indigo-800",
+  "group-hover/nodecategory:text-purple-800",
+  "group-hover/nodecategory:text-violet-800",
+  "group-hover/nodecategory:text-fuchsia-800",
+];
+
+export const borderColors = [
+  "hover:border-emerald-600",
+  "hover:border-teal-600",
+  "hover:border-cyan-600",
+  "hover:border-sky-600",
+  "hover:border-blue-600",
+  "hover:border-indigo-600",
+  "hover:border-purple-600",
+  "hover:border-violet-600",
+  "hover:border-fuchsia-600",
+];
+
+export const bgColors = [
+  "hover:bg-emerald-100!",
+  "hover:bg-teal-100!",
+  "hover:bg-cyan-100!",
+  "hover:bg-sky-100!",
+  "hover:bg-blue-100!",
+  "hover:bg-indigo-100!",
+  "hover:bg-purple-100!",
+  "hover:bg-violet-100!",
+  "hover:bg-fuchsia-100!",
+];

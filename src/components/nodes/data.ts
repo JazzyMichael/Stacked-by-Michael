@@ -251,6 +251,20 @@ function buildTitleIconMap(items: any[]) {
 
 export const nodeTitleIconMap = buildTitleIconMap(nodeNavItems);
 
+export const getNodeType = (category: string, item: string) => {
+  // Handle duplicate names
+  if (category === "Outputs" && item === "Audio") return "AudioOutput";
+  if (category === "Outputs" && item === "Image") return "ImageOutput";
+
+  // Handle custom names
+  if (category === "Apps") return "CatPictures";
+
+  // Default
+  if (category !== "Inputs" && category !== "Outputs") return "Base";
+
+  return item;
+};
+
 export const nodeTypes: NodeTypes = {
   // Inputs
   Input: InputNode,
