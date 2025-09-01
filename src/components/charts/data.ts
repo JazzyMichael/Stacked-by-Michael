@@ -86,3 +86,22 @@ export const aiRevenueData = [
     xai: 70.0,
   },
 ];
+
+export const usageSources = [
+  "https://www.similarweb.com/blog/marketing/seo/chatgpt-monthly-visits/",
+  "https://www.demandsage.com/chatgpt-statistics/",
+  "https://www.similarweb.com/website/claude.ai/vs/chatgpt.com/",
+  "https://www.voronoiapp.com/technology/Which-GenAI-Website-Saw-the-Biggest-Traffic-Jump-in-July-2025-6187",
+  "https://www.calcalistech.com/ctechnews/article/6xjmnivpj",
+  "https://www.businessofapps.com/data/google-gemini-statistics/",
+  "https://wearesocial.com/us/blog/2025/07/digital-2025-july-global-statshot-report/",
+  "https://explodingtopics.com/blog/grok-users",
+];
+
+export const revenueSources = [
+  "https://www.demandsage.com/chatgpt-statistics/",
+  "https://www.pymnts.com/artificial-intelligence-2/2025/report-anthropics-annualized-revenue-reaches-1-4-billion/",
+  "https://acquinox.capital/blog/anthropic-investor-insights",
+  "https://finance.yahoo.com/news/anthropic-nears-funding-170-billion-005055848.html",
+  "https://www.theinformation.com/articles/anthropic-revenue-pace-nears-5-billion-run-mega-round",
+];

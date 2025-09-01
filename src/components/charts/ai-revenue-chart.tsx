@@ -24,19 +24,19 @@ const chartConfig = {
   },
   openai: {
     label: "Open AI",
-    color: "var(--chart-1)",
+    color: "var(--openai)",
   },
   anthropic: {
     label: "Anthropic",
-    color: "var(--chart-2)",
+    color: "var(--anthropic)",
   },
   gemini: {
     label: "Google Gemini",
-    color: "var(--chart-3)",
+    color: "var(--gemini)",
   },
   xai: {
     label: "Xai",
-    color: "var(--chart-4)",
+    color: "var(--xai)",
   },
 } satisfies ChartConfig;
 

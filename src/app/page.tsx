@@ -170,7 +170,7 @@ export default function Page() {
     <>
       <NavigationMenu
         viewport={false}
-        className="justify-between w-full max-w-none py-3 px-5 bg-white"
+        className="justify-between w-full max-w-none py-3 px-5 bg-white! z-40"
       >
         <Logo />
 
@@ -180,38 +180,6 @@ export default function Page() {
               Solutions
             </NavigationMenuTrigger>
             <NavigationMenuContent className="z-50">
-              {/* <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <a
-                    className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
-                    href="/"
-                  >
-                    <div className="mt-4 mb-2 text-lg font-medium">
-                      shadcn/ui
-                    </div>
-                    <p className="text-muted-foreground text-sm leading-tight">
-                      Beautifully designed components built with Tailwind CSS.
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <ListItem
-                href="/docs"
-                title="Introduction"
-                description="Re-usable components built using Radix UI and Tailwind CSS."
-              ></ListItem>
-              <ListItem
-                href="/docs/installation"
-                title="Installation"
-                description="How to install dependencies and structure your app."
-              ></ListItem>
-              <ListItem
-                href="/docs/primitives/typography"
-                title="Typography"
-                description="Styles for headings, paragraphs, lists...etc"
-              ></ListItem>
-            </ul> */}
               <div className="text-xs text-gray-400 font-bold p-2">PRODUCT</div>
               <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 {navItems.product.map((component) => (
@@ -239,7 +207,7 @@ export default function Page() {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem className="z-40 hidden lg:list-item">
+          <NavigationMenuItem className="z-40 hidden lg:list-item hover:bg-white">
             <NavigationMenuLink
               asChild
               className={navigationMenuTriggerStyle()}
@@ -255,7 +223,7 @@ export default function Page() {
               <Link href="#">Customers</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
-          <NavigationMenuItem className="z-40 hidden lg:list-item">
+          <NavigationMenuItem className="z-40 hidden lg:list-item bg-white">
             <NavigationMenuLink
               asChild
               className={navigationMenuTriggerStyle()}
@@ -263,8 +231,11 @@ export default function Page() {
               <Link href="#">Pricing</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
-          <NavigationMenuItem className="z-40">
-            <NavigationMenuTrigger onClick={(e) => e.preventDefault()}>
+          <NavigationMenuItem className="z-40 bg-white">
+            <NavigationMenuTrigger
+              onClick={(e) => e.preventDefault()}
+              className="bg-white!"
+            >
               Resources
             </NavigationMenuTrigger>
             <NavigationMenuContent className="z-50">
@@ -297,7 +268,7 @@ export default function Page() {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem className="z-40 hidden lg:list-item">
+          <NavigationMenuItem className="z-40 hidden lg:list-item bg-white">
             <NavigationMenuLink
               asChild
               className={navigationMenuTriggerStyle()}

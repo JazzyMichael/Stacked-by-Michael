@@ -1,14 +1,7 @@
 "use client";
-import { TrendingUp } from "lucide-react";
+
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   ChartConfig,
   ChartContainer,
@@ -17,26 +10,20 @@ import {
 } from "@/components/ui/chart";
 import { stackAIData } from "./data";
 
-export const description = "A multiple bar chart";
-
 const chartConfig = {
   desktop: {
     label: "without Michael ",
-    color: "var(--chart-1)",
+    color: "var(--stackai)",
   },
   mobile: {
     label: "with Michael",
-    color: "var(--chart-4)",
+    color: "var(--stackmichael)",
   },
 } satisfies ChartConfig;
 
-export function ScaleAIChart() {
+export function StackAIChart() {
   return (
     <Card className="shadow-none border-none">
-      <CardHeader>
-        {/* <CardTitle>Scale AI</CardTitle> */}
-        {/* <CardDescription>Company Growth and Employee Happiness</CardDescription> */}
-      </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={stackAIData}>
@@ -56,13 +43,6 @@ export function ScaleAIChart() {
           </BarChart>
         </ChartContainer>
       </CardContent>
-      {/* <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="text-muted-foreground leading-none">
-          These arbitrary numbers show a massive increase in "units" when
-          Michael stops working on his clone of StackAI and begins working with
-          the actual company.
-        </div>
-      </CardFooter> */}
     </Card>
   );
 }

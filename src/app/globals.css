@@ -187,13 +187,22 @@
     --chart-3: oklch(0.398 0.07 227.392);
     --chart-4: oklch(0.828 0.189 84.429);
     --chart-5: oklch(0.769 0.188 70.08);
-  }
 
-  .dark {
-    --chart-1: oklch(0.488 0.243 264.376);
-    --chart-2: oklch(0.696 0.17 162.48);
-    --chart-3: oklch(0.769 0.188 70.08);
-    --chart-4: oklch(0.627 0.265 303.9);
-    --chart-5: oklch(0.645 0.246 16.439);
+    /* charts */
+    /* --openai: oklch(53.97% 0.2355 315.597);
+    --anthropic: oklch(67.178% 0.1788 37.358);
+    --gemini: oklch(60.02% 0.14027 245.822);
+    --xai: oklch(26.569% 0.13224 269.686); */
+
+    --anthropic: oklch(65% 0.18 30); /* warm orange */
+    --gemini: oklch(65% 0.18 150); /* teal green */
+    --xai: oklch(65% 0.18 270); /* violet blue */
+    --openai: oklch(65% 0.18 330); /* magenta pink */
+
+    --android: oklch(34.92% 0.14868 267.668);
+    --iphone: oklch(72.874% 0.11484 211.965);
+
+    --stackai: oklch(44.605% 0.26686 278.351);
+    --stackmichael: oklch(75.636% 0.21322 144.988);
   }
 }

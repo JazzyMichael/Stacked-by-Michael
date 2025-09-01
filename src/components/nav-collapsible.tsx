@@ -1,6 +1,12 @@
 "use client";
 
-import { ChevronRight, Icon, Menu, type LucideIcon } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronRight,
+  Icon,
+  Menu,
+  type LucideIcon,
+} from "lucide-react";
 import {
   Collapsible,
   CollapsibleContent,
@@ -35,6 +41,42 @@ export function NavCollapsible({
 }) {
   const [_, setNodeData] = useDragDrop();
 
+  const iconColors = [
+    "group-hover/nodecategory:stroke-emerald-500",
+    "group-hover/nodecategory:stroke-teal-500",
+    "group-hover/nodecategory:stroke-cyan-500",
+    "group-hover/nodecategory:stroke-sky-500",
+    "group-hover/nodecategory:stroke-blue-500",
+    "group-hover/nodecategory:stroke-indigo-500",
+    "group-hover/nodecategory:stroke-purple-500",
+    "group-hover/nodecategory:stroke-violet-500",
+    "group-hover/nodecategory:stroke-fuchsia-500",
+  ];
+
+  const textColors = [
+    "group-hover/nodecategory:text-emerald-800",
+    "group-hover/nodecategory:text-teal-800",
+    "group-hover/nodecategory:text-cyan-800",
+    "group-hover/nodecategory:text-sky-800",
+    "group-hover/nodecategory:text-blue-800",
+    "group-hover/nodecategory:text-indigo-800",
+    "group-hover/nodecategory:text-purple-800",
+    "group-hover/nodecategory:text-violet-800",
+    "group-hover/nodecategory:text-fuchsia-800",
+  ];
+
+  const borderColors = [
+    "hover:border-emerald-600",
+    "hover:border-teal-600",
+    "hover:border-cyan-600",
+    "hover:border-sky-600",
+    "hover:border-blue-600",
+    "hover:border-indigo-600",
+    "hover:border-purple-600",
+    "hover:border-violet-600",
+    "hover:border-fuchsia-600",
+  ];
+
   const onDragStart = (event: React.DragEvent, nodeData: any) => {
     setNodeData && setNodeData(nodeData);
     event.dataTransfer.effectAllowed = "move";
@@ -57,7 +99,7 @@ export function NavCollapsible({
   return (
     <SidebarGroup>
       <SidebarMenu className="pt-1.5">
-        {items.map((item) => (
+        {items.map((item, i) => (
           <Collapsible
             key={item.title}
             asChild
@@ -72,20 +114,24 @@ export function NavCollapsible({
                 >
                   <a
                     href="#"
-                    className="!w-full"
+                    className={`!w-full hover:bg-white! border-1 border-transparent ${borderColors[i]} box-border`}
                     style={{ width: "100% !important" }}
                     draggable="false"
                   >
                     {item.icon && (
                       <item.icon
                         strokeWidth={2}
-                        className="size-[1.2rem]! group-hover/nodecategory:scale-[65%] group-hover/nodecategory:rotate-[360deg] transition-transform duration-500"
+                        className={`size-[1.2rem]! group-hover/nodecategory:scale-[65%] group-hover/nodecategory:rotate-[360deg] transition-transform duration-500 stroke-gray-700 ${iconColors[i]}`}
                       />
                     )}
-                    <span className="font-medium whitespace-nowrap ml-2">
+                    <span
+                      className={`font-medium whitespace-nowrap ml-2 ${textColors[i]}`}
+                    >
                       {item.title}
                     </span>
-                    <ChevronRight className="size-4! stroke-gray-500 ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                    <ChevronDown
+                      className={`size-4! stroke-gray-500 ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180 ${iconColors[i]}`}
+                    />
                   </a>
                 </SidebarMenuButton>
               </CollapsibleTrigger>

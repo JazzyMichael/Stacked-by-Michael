@@ -23,11 +23,11 @@ const chartConfig = {
   },
   iphone: {
     label: "iPhone",
-    color: "var(--chart-2)",
+    color: "var(--iphone)",
   },
   android: {
     label: "Android",
-    color: "var(--chart-3)",
+    color: "var(--android)",
   },
 } satisfies ChartConfig;
 

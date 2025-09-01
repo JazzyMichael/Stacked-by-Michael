@@ -20,27 +20,25 @@ import {
 } from "@/components/ui/chart";
 import { aiUsageData } from "./data";
 
-const chartData = aiUsageData;
-
 const chartConfig = {
   visitors: {
     label: "Visitors",
   },
   openai: {
     label: "Open AI",
-    color: "var(--chart-1)",
+    color: "var(--openai)",
   },
   anthropic: {
     label: "Anthropic",
-    color: "var(--chart-2)",
+    color: "var(--anthropic)",
   },
   gemini: {
     label: "Google Gemini",
-    color: "var(--chart-3)",
+    color: "var(--gemini)",
   },
   xai: {
     label: "Xai",
-    color: "var(--chart-4)",
+    color: "var(--xai)",
   },
 } satisfies ChartConfig;
 
@@ -62,7 +60,7 @@ export function AIUsageChart() {
           config={chartConfig}
           className="aspect-auto h-[250px] w-full"
         >
-          <AreaChart data={chartData}>
+          <AreaChart data={aiUsageData}>
             <defs>
               <linearGradient id="fillOpenAI" x1="0" y1="0" x2="0" y2="1">
                 <stop
