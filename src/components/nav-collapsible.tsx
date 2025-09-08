@@ -92,7 +92,7 @@ export function NavCollapsible({
               <CollapsibleContent>
                 <SidebarMenuSub className="border-none ml-2 mr-0 my-1.5 pr-2 pt-1 gap-2">
                   {item.items?.map((subItem, ii) => (
-                    <SidebarMenuSubItem key={subItem.title}>
+                    <SidebarMenuSubItem key={subItem.title + "-" + i + ii}>
                       <SidebarMenuSubButton
                         asChild
                         draggable

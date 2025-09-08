@@ -59,6 +59,9 @@ import {
 import { NodeTypes } from "@xyflow/react";
 import { BaseNode } from "./base-node";
 import { CatNode } from "./cat-node";
+import { CareerNode } from "./career-node";
+
+import { experience } from "@/lib/career-data";
 
 export const nodeNavItems = [
   {
@@ -243,7 +246,17 @@ export const nodeNavItems = [
       { title: "Dynamic Vector Store", icon: Box, url: "#" },
     ],
   },
+  {
+    title: "Career",
+    icon: Wrench,
+    url: "#",
+    items: experience,
+  },
 ];
+
+const ex = experience.map((item) => {
+  return { title: "Career", ...item };
+});
 
 function buildTitleIconMap(items: any[]) {
   const map = new Map();
@@ -271,6 +284,9 @@ export const getNodeType = (category: string, item: string) => {
   // Handle custom names
   if (category === "Apps") return "CatPictures";
 
+  // Career nodes
+  if (category === "Career") return "Career";
+
   // Default
   if (category !== "Inputs" && category !== "Outputs") return "Base";
 
@@ -293,6 +309,8 @@ export const nodeTypes: NodeTypes = {
   ImageOutput: ImageOutputNode,
   // Apps
   CatPictures: CatNode,
+  // Career
+  Career: CareerNode,
   // Default
   Base: BaseNode,
 };

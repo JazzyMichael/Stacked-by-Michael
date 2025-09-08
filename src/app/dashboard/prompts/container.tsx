@@ -36,7 +36,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Prompt } from "./data";
 import { useState } from "react";
-import { formatDate, generateID } from "@/lib/utils";
+import { formatDate } from "@/lib/utils";
 import { CreatePrompt, FormElements } from "./dialogs";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";

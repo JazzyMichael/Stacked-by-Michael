@@ -27,7 +27,8 @@ export default function InterfaceEdit() {
       <div className="flex h-full items-center justify-center p-7">
         {category === "User Interfaces" && (
           <div className="border-1 shadow-md grow h-full rounded-md flex justify-center items-center">
-            Template
+            {item.name} not supported yet, try API Connections or Legacy
+            Interfaces
           </div>
         )}
 

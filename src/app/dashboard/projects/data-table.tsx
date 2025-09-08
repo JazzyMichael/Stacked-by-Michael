@@ -41,13 +41,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import {
   Table,
@@ -64,8 +57,6 @@ import {
   ArrowUp,
   ChevronLeft,
   ChevronRight,
-  ChevronsLeft,
-  ChevronsRight,
   EyeOff,
   TrendingUp,
   CircleCheck,
@@ -173,15 +164,15 @@ const columns: ColumnDef<TableSchema>[] = [
       </form>
     ),
   },
-  {
-    accessorKey: "updated",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Last Updated" />
-    ),
-    cell: ({ row }) => {
-      return row.original.updated;
-    },
-  },
+  // {
+  //   accessorKey: "updated",
+  //   header: ({ column }) => (
+  //     <DataTableColumnHeader column={column} title="Last Updated" />
+  //   ),
+  //   cell: ({ row }) => {
+  //     return row.original.updated;
+  //   },
+  // },
   {
     id: "actions",
     cell: () => (
@@ -230,11 +221,11 @@ function DataTableColumnHeader<TData, TValue>({
           >
             <span>{title}</span>
             {column.getIsSorted() === "desc" ? (
-              <ArrowDown />
+              <ArrowDown className="size-3! stroke-gray-600" />
             ) : column.getIsSorted() === "asc" ? (
-              <ArrowUp />
+              <ArrowUp className="size-3! stroke-gray-600" />
             ) : (
-              <ArrowUpDown />
+              <ArrowUpDown className="size-3! stroke-gray-600" />
             )}
           </Button>
         </DropdownMenuTrigger>

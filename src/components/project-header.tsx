@@ -32,12 +32,12 @@ export function ProjectHeader() {
         </Tabs>
       </div>
 
-      <div className="flex items-end gap-4 text-[13.5px] font-medium">
+      <div className="items-end gap-4 text-[13.5px] font-medium hidden lg:flex">
         <Folder className="size-[18px] stroke-gray-500 cursor-pointer" />
         Career Outline <Switch />
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="hidden md:flex items-center gap-2">
         <Button
           variant="outline"
           className="w-20 justify-center gap-2 bg-white"

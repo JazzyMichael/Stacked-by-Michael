@@ -20,7 +20,7 @@ export const basicFit: JobRequirement[] = [
     skill:
       "Collaborate with backend team to integrate new features seamlessly into the user interface.",
     experience:
-      "Easy. Very familiar with backend tech and am able to connect the dots between frontend and application architecture and backend distributed systems.",
+      "Very familiar with backend tech and am able to connect the dots between frontend and application architecture and backend distributed systems.",
   },
   {
     skill:
@@ -31,7 +31,8 @@ export const basicFit: JobRequirement[] = [
   {
     skill:
       "Focus on user experience design, creating intuitive and innovative interfaces that meet the needs of our users.",
-    experience: "",
+    experience:
+      "This is extremely important and often the essence of the product. I use the latest & greatest tools to develop high quality user interfaces and track interactions across the application.",
   },
   {
     skill:
@@ -42,7 +43,8 @@ export const basicFit: JobRequirement[] = [
   {
     skill:
       "We're all about our users - listen to their needs, help them, build strong relationships! Expect to dive into customer support now and then as everyone else in the team.",
-    experience: "... and I'm also one your users.",
+    experience:
+      "Listening to all feedback and deriving the next iterations of the product is a key part of application design & development. I can interact with users as a Forward Deployed Engineer as well as a high-performing internal developer.",
   },
 ];
 
@@ -72,7 +74,8 @@ export const greatFit: JobRequirement[] = [
   },
   {
     skill: "Ability to write clean, readable, and maintainable code.",
-    experience: "This is a given.",
+    experience:
+      "This should be a given! This sets the groundwork for adding new features and working on all aspects of the system.",
   },
   {
     skill:
@@ -93,20 +96,22 @@ export const exceptionalFit: JobRequirement[] = [
     skill:
       "Experience with backend technologies, understanding how to integrate with various APIs and data sources.",
     experience:
-      "Frontend data layer user server actions, efficient caching strategies using Next fetch extensions, Singleton hooks, and optimized queries.",
+      "Very familiar with backend tech and am able to connect the dots between frontend and application architecture and backend distributed systems. A thorough understanding of the full stack enables me to build features end to end, and work on aspect of the system. The frontend data layer is optimized with Next.js server actions, efficient caching strategies using Next.js fetch extensions, Singleton-style React hooks, and optimized queries.",
   },
   {
     skill:
       "Knowledge of AI models and their application in enhancing frontend functionalities.",
-    experience: "Dev tooling, Code Gen, Planning",
+    experience:
+      "This is apparent in modern dev tooling as well as application integrations using the latest models and patterns.",
   },
   {
     skill: "Familiarity with modern front-end build pipelines and tools.",
-    experience: "I thought everybody knows this",
+    experience:
+      "Git pipelines for pull requests and deployments are great for running automated tests and linting processes to ensure every release is smooth.",
   },
   {
     skill:
       "A passion for AI and technology, with an eagerness to work in a dynamic startup environment.",
-    experience: "Exactly what Im lookin for.",
+    experience: "Exactly what Im looking for.",
   },
 ];

@@ -25,7 +25,6 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
@@ -237,9 +236,9 @@ function DataTableColumnHeader<TData, TValue>({
           >
             <span>{title}</span>
             {column.getIsSorted() === "desc" ? (
-              <ArrowDown />
+              <ArrowDown className="size-3! stroke-gray-600" />
             ) : column.getIsSorted() === "asc" ? (
-              <ArrowUp />
+              <ArrowUp className="size-3! stroke-gray-600" />
             ) : (
               <ArrowUpDown className="size-3! stroke-gray-600" />
             )}
@@ -278,9 +277,6 @@ function TableCellViewer({ item }: { item: TableSchema }) {
       <DrawerContent className="w-[40%]">
         <DrawerHeader className="gap-1">
           <DrawerTitle>{item.label}</DrawerTitle>
-          {/* <DrawerDescription>
-            Showing total visitors for the last 6 months
-          </DrawerDescription> */}
         </DrawerHeader>
 
         <Separator />
@@ -289,17 +285,6 @@ function TableCellViewer({ item }: { item: TableSchema }) {
           {item.content?.map((item, i) => (
             <div key={i}>{item}</div>
           ))}
-
-          {/* <div className="grid gap-2">
-            <div className="flex gap-2 leading-none font-medium">
-              Trending up by 5.2% this month <TrendingUp className="size-4" />
-            </div>
-            <div className="text-muted-foreground">
-              Showing total visitors for the last 6 months. This is just some
-              random text to test the layout. It spans multiple lines and should
-              wrap around.
-            </div>
-          </div> */}
 
           <Separator />
         </div>

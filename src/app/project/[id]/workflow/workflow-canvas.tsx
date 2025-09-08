@@ -232,9 +232,9 @@ export default function WorkflowCanvas({
             <Camera className="fill-none! h-4! w-4! max-w-none! max-h-none! group-hover:stroke-black stroke-gray-500" />
           </ControlButton>
 
-          {/* <ControlButton onClick={() => console.log({ nodes, edges })}>
+          <ControlButton onClick={() => console.log({ nodes, edges })}>
             <File className="fill-white! stroke-gray-700 size-8!" />
-          </ControlButton> */}
+          </ControlButton>
         </Controls>
 
         <Background

@@ -53,7 +53,7 @@ export default function Page() {
           <DateRangeSelect />
         </div>
 
-        <div className="flex gap-2">
+        <div className="hidden md:flex gap-2">
           <Menubar>
             <MenubarMenu>
               <MenubarTrigger>

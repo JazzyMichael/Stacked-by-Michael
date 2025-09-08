@@ -33,6 +33,12 @@ export default memo(
             position={Position.Left}
             isConnectable={isConnectable}
             onConnect={(params) => console.log("handle connected", params)}
+            style={{
+              height: "20px",
+              width: "20px",
+              border: "2px solid black",
+              backgroundColor: "white",
+            }}
           />
         )}
 
@@ -86,6 +92,12 @@ export default memo(
           position={Position.Right}
           isConnectable={isConnectable}
           onConnect={(params) => console.log("handle connected", params)}
+          style={{
+            height: "20px",
+            width: "20px",
+            border: "2px solid black",
+            backgroundColor: "white",
+          }}
         />
       </div>
     );

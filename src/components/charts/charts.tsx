@@ -27,7 +27,8 @@ export default function Charts() {
               gap-8
               grid-cols-1
               md:grid-cols-2
-              xl:grid-cols-4
+              2xl:grid-cols-4
+              px-4
             "
       >
         <div className="grow border-1 shadow-bot rounded-lg shadow-md bg-white">
@@ -131,7 +132,7 @@ export default function Charts() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20 px-8">
         <Card>
           <CardHeader>
             <CardTitle>Usage Estimates</CardTitle>

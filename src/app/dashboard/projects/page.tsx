@@ -108,7 +108,11 @@ export default function Page() {
               <TabsTrigger value="grid" className="cursor-pointer">
                 <LayoutGrid />
               </TabsTrigger>
-              <TabsTrigger value="list" className="cursor-pointer">
+              <TabsTrigger
+                disabled={true}
+                value="list"
+                className="cursor-pointer"
+              >
                 <TableProperties />
               </TabsTrigger>
             </TabsList>
