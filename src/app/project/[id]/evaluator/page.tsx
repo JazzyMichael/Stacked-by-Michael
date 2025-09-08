@@ -178,7 +178,7 @@ function ExceptionalSection() {
   );
 }
 
-export function PlatformEvaluation() {
+function PlatformEvaluation() {
   return (
     <div className="max-w-3xl">
       <div className="px-4 sm:px-0">

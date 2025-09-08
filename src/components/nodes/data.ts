@@ -246,12 +246,12 @@ export const nodeNavItems = [
       { title: "Dynamic Vector Store", icon: Box, url: "#" },
     ],
   },
-  {
-    title: "Career",
-    icon: Wrench,
-    url: "#",
-    items: experience,
-  },
+  // {
+  //   title: "Career",
+  //   icon: Wrench,
+  //   url: "#",
+  //   items: experience,
+  // },
 ];
 
 const ex = experience.map((item) => {
