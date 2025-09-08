@@ -155,6 +155,18 @@ export const iconColors = [
   "group-hover/nodecategory:stroke-fuchsia-500",
 ];
 
+export const subIconColors = [
+  "group-hover/collapsible:stroke-emerald-500",
+  "group-hover/collapsible:stroke-teal-500",
+  "group-hover/collapsible:stroke-cyan-500",
+  "group-hover/collapsible:stroke-sky-500",
+  "group-hover/collapsible:stroke-blue-500",
+  "group-hover/collapsible:stroke-indigo-500",
+  "group-hover/collapsible:stroke-purple-500",
+  "group-hover/collapsible:stroke-violet-500",
+  "group-hover/collapsible:stroke-fuchsia-500",
+];
+
 export const textColors = [
   "group-hover/nodecategory:text-emerald-800",
   "group-hover/nodecategory:text-teal-800",

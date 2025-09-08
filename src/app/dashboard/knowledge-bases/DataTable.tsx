@@ -164,15 +164,15 @@ const columns: ColumnDef<TableSchema>[] = [
       </form>
     ),
   },
-  {
-    accessorKey: "updated",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Last Updated" />
-    ),
-    cell: ({ row }) => {
-      return row.original.updated;
-    },
-  },
+  // {
+  //   accessorKey: "updated",
+  //   header: ({ column }) => (
+  //     <DataTableColumnHeader column={column} title="Last Updated" />
+  //   ),
+  //   cell: ({ row }) => {
+  //     return row.original.updated;
+  //   },
+  // },
   {
     id: "actions",
     cell: () => (
@@ -188,9 +188,24 @@ const columns: ColumnDef<TableSchema>[] = [
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-32">
-          <DropdownMenuItem>Edit</DropdownMenuItem>
-          <DropdownMenuItem>Permissions</DropdownMenuItem>
-          <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() => toast.info("No editing, just toast")}
+          >
+            Edit
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() =>
+              toast.success("You have permission to keep clicking buttons ;)")
+            }
+          >
+            Permissions
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            variant="destructive"
+            onClick={() => toast.error("You cant delete knowledge!")}
+          >
+            Delete
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     ),
@@ -202,6 +217,7 @@ interface DataTableColumnHeaderProps<TData, TValue>
   column: Column<TData, TValue>;
   title: string;
 }
+
 function DataTableColumnHeader<TData, TValue>({
   column,
   title,
@@ -225,7 +241,7 @@ function DataTableColumnHeader<TData, TValue>({
             ) : column.getIsSorted() === "asc" ? (
               <ArrowUp />
             ) : (
-              <ArrowUpDown />
+              <ArrowUpDown className="size-3! stroke-gray-600" />
             )}
           </Button>
         </DropdownMenuTrigger>
@@ -259,15 +275,22 @@ function TableCellViewer({ item }: { item: TableSchema }) {
           {item.label}
         </Button>
       </DrawerTrigger>
-      <DrawerContent>
+      <DrawerContent className="w-[40%]">
         <DrawerHeader className="gap-1">
           <DrawerTitle>{item.label}</DrawerTitle>
-          <DrawerDescription>
+          {/* <DrawerDescription>
             Showing total visitors for the last 6 months
-          </DrawerDescription>
+          </DrawerDescription> */}
         </DrawerHeader>
-        <div className="flex flex-col gap-4 overflow-y-auto px-4 text-sm">
-          <div className="grid gap-2">
+
+        <Separator />
+
+        <div className="flex flex-col gap-4 overflow-y-auto px-4 text-md mt-10">
+          {item.content?.map((item, i) => (
+            <div key={i}>{item}</div>
+          ))}
+
+          {/* <div className="grid gap-2">
             <div className="flex gap-2 leading-none font-medium">
               Trending up by 5.2% this month <TrendingUp className="size-4" />
             </div>
@@ -276,9 +299,11 @@ function TableCellViewer({ item }: { item: TableSchema }) {
               random text to test the layout. It spans multiple lines and should
               wrap around.
             </div>
-          </div>
+          </div> */}
+
           <Separator />
         </div>
+
         <DrawerFooter>
           <DrawerClose asChild>
             <Button>Close</Button>
@@ -492,22 +517,24 @@ export function DataTable({ data: initialData }: { data: TableSchema[] }) {
           </div>
         </div>
       </TabsContent>
+
       <TabsContent value="grid" className="flex flex-wrap px-4 lg:px-6">
         {data.map((item) => (
           <div key={item.id} className="w-full sm:w-1/2 lg:w-1/3 p-2">
             <div className="flex flex-col justify-between border rounded-lg p-3 min-h-[148px] max-h-[214px] max-w-[600px] shadow-xs bg-white">
               <div className="flex justify-between items-start">
                 <div>
-                  <h2 className="text-sm font-medium text-[#09090b] truncate mb-1">
+                  {/* <h2 className="text-sm font-medium text-[#09090b] truncate mb-1">
                     {item.label}
-                  </h2>
+                  </h2> */}
+                  <TableCellViewer item={item} />
                   <p className="text-xs text-[#71717A] line-clamp-2">
                     {item.category}
                   </p>
                 </div>
 
                 <DropdownMenu>
-                  <DropdownMenuTrigger className="h-7 w-7 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm focus:outline-none focus:ring-0 hover:bg-accent hover:text-accent-foreground cursor-pointer">
+                  <DropdownMenuTrigger className="h-7 w-7 pt-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm focus:outline-none focus:ring-0 hover:bg-accent hover:text-accent-foreground cursor-pointer">
                     <EllipsisVertical className="w-4 h-4" />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent side="bottom" align="end">

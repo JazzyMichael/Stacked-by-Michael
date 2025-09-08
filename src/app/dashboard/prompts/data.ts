@@ -9,7 +9,7 @@ export type Prompt = {
 export const prompts: Prompt[] = [
   {
     id: "1",
-    title: "Prompt One",
+    title: "Domain Names",
     description: "This is the first prompt.",
     content:
       "Suggest domain names for the following project: {project details}",
@@ -17,30 +17,19 @@ export const prompts: Prompt[] = [
   },
   {
     id: "2",
-    title: "Prompt Two",
-    description: "This is the second prompt.",
-    content: "Generate a marketing strategy for {product name}.",
+    title: "Planning Steps & Nested Tasks",
+    description:
+      "Get the agent to break down a task into smaller steps before execution.",
+    content:
+      "Decompose this problem into subgoals. For each subgoal, suggest the best next action. Before answering, outline your plan step by step. Then execute each step in order.",
     lastUpdated: "2023-10-02",
   },
   {
     id: "3",
-    title: "Prompt Three",
-    description: "This is the third prompt.",
-    content: "Write a blog post about {topic}.",
+    title: "Multi-Agent Collaboration",
+    description: "Use when workflows involve specialized agents.",
+    content:
+      "You are the Research Agent, one of several agents. Gather and summarize background information. Pass your findings to the Writer Agent for refinement. Communicate your conclusions clearly so the Orchestrator can make the final decision.",
     lastUpdated: "2023-10-03",
-  },
-  {
-    id: "4",
-    title: "Prompt Four",
-    description: "This is the fourth prompt.",
-    content: "Create a social media calendar for {brand}.",
-    lastUpdated: "2023-10-04",
-  },
-  {
-    id: "5",
-    title: "Prompt Five",
-    description: "This is the fifth prompt.",
-    content: "Draft an email campaign for {event}.",
-    lastUpdated: "2023-10-05",
   },
 ];

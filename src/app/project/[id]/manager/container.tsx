@@ -85,12 +85,12 @@ export default function Container({
         <div className="bg-white w-full p-10">
           <h3 className="font-bold text-lg mb-10">{selected.label}</h3>
           <p>{selected.content}</p>
-          <p>
+          {/* <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Error non
             aut placeat veritatis. Cum velit sapiente, quod iste, quasi voluptas
             esse architecto eum facere assumenda dolorum officiis voluptatem
             nostrum amet.
-          </p>
+          </p> */}
         </div>
       ) : (
         <div className="bg-white grow flex items-center justify-center">

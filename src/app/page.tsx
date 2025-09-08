@@ -12,8 +12,9 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Cloud, Lock, Server } from "lucide-react";
+import { CalendarClock, CheckCircle, Cloud, Lock, Server } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { asciiLogo } from "@/lib/ascii-art";
 
 const placeholderImage =
   "https://framerusercontent.com/images/CXQ0y8QtXsQfoTEbe9iuOSDLJE.svg";
@@ -168,6 +169,7 @@ const navItems: {
 };
 
 export default function Page() {
+  console.log(asciiLogo);
   return (
     <>
       <NavigationMenu
@@ -332,9 +334,9 @@ function HeroSection() {
             The best kind of job application ...
           </h1>
           <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8 dark:text-gray-400">
-            ... is one that demonstrates skills, passion, shared values, and
-            genuine desire to team up. Let me show you why I'm a perfect fit for
-            this incredible opportunity.
+            ... is one that demonstrates skills, passion, values, and genuine
+            desire to team up. Let me show you why I'm a perfect fit to join you
+            in bringing Agent Orchestration to the world.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a
@@ -343,12 +345,16 @@ function HeroSection() {
             >
               Get started
             </a>
-            <a
-              href="#learn-more"
-              className="text-sm/6 font-semibold text-gray-900 dark:text-white"
+            <span
+              className="text-sm/6 font-semibold text-gray-900 dark:text-white cursor-pointer"
+              onClick={() => {
+                document
+                  .getElementById("learn-more")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
             >
               Learn more <span aria-hidden="true">→</span>
-            </a>
+            </span>
           </div>
         </div>
       </div>
@@ -373,19 +379,19 @@ function NotableFeatures() {
     {
       name: "Fancy Sidebar",
       description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+        "The sidebar on the dashboard and project workflow pages is really cool. I used shadcn and Tailwind CSS 'group' feature to dynamically change the width and overlay effects. This functionality provides a convenient way to select navigation items and adds a unique feel to the website.",
       icon: Cloud,
     },
     {
       name: "Flowchart Canvas",
       description:
-        "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.",
+        "This is a core part of the platform, so it is important to get this right. I used the same library as StackAI to build the flowchart components and created different types of nodes and templates that can be used, and set up a few sample projects to display an outline of my work experience and a showcase of all the node templates.",
       icon: Lock,
     },
     {
       name: "Scaffolding & Creativity",
       description:
-        "Built each page to match the UI design on the StackAI platform and incorporated personal details as a fun way to share my work experience, skills, and motivations.",
+        "Built each page to match the UI design on the StackAI platform and incorporated personal details as a fun way to share my work experience, skills, motivations, and personality. This project is set up to scale and uses the same route structure and underlying patterns as the offical site.",
       icon: Server,
     },
   ];
@@ -403,9 +409,10 @@ function NotableFeatures() {
                 More than just a clone
               </p>
               <p className="mt-6 text-lg/8 text-gray-300">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Maiores impedit perferendis suscipit eaque, iste dolor
-                cupiditate blanditiis ratione.
+                This is a custom job application and also a fun project. I added
+                my own personal touch to various aspects of the platform, and
+                now I'm ready to stop working on this and start working with the
+                actual company 😂. These are some of the features I built:
               </p>
               <dl className="mt-10 max-w-xl space-y-8 text-base/7 lg:max-w-none text-gray-400">
                 {features.map((feature) => (
@@ -463,7 +470,15 @@ function Buttons() {
       >
         <a href="/auth/login">Login</a>
       </Button>
-      <Button>Get a demo</Button>
+      <Button
+        onClick={() => {
+          document
+            .getElementById("get-in-touch")
+            ?.scrollIntoView({ behavior: "smooth" });
+        }}
+      >
+        Get a demo
+      </Button>
     </div>
   );
 }
@@ -506,23 +521,32 @@ function ListItem({
 
 function DarkSection() {
   return (
-    <div className="mx-auto my-20 max-w-7xl sm:px-6 lg:px-8">
+    <div id="get-in-touch" className="mx-auto my-20 max-w-7xl sm:px-6 lg:px-8">
       <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32">
         <h2 className="mx-auto max-w-3xl text-center text-4xl font-semibold tracking-tight text-white sm:text-5xl">
           Schedule an intro call
         </h2>
         <p className="mx-auto mt-6 max-w-lg text-center text-lg text-gray-300">
-          Reprehenderit ad esse et non officia in nulla. Id proident tempor
-          incididunt nostrud nulla et culpa.
+          or shoot me an email{" "}
+          <a
+            href="mailto:thejazzymichael@gmail.com"
+            className="text-indigo-300 hover:text-indigo-200"
+          >
+            thejazzymichael@gmail.com
+          </a>
         </p>
-        <button className="block mx-auto mt-6 rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white dark:shadow-none">
+        <Button
+          asChild
+          className="mx-auto mt-6 rounded-md bg-white hover:bg-indigo-200 text-indigo-800 px-3.5 py-2.5 flex w-56"
+        >
           <a
             href="https://calendar.app.google/YjQ8RY92xmaFi1ek9"
             target="_blank"
           >
+            <CalendarClock />
             Google Calendar Scheduler
           </a>
-        </button>
+        </Button>
         <svg
           viewBox="0 0 1024 1024"
           aria-hidden="true"
@@ -557,7 +581,7 @@ function DarkSection() {
 function Footer() {
   return (
     <div className="flex flex-col gap-2 items-center my-10 text-[10px] font-medium text-gray-500">
-      <span>&copy; 2025 Stacked-By-Michael. All rights reserved</span>
+      <span>&copy; 2025 Stacked-By-Michael. All rights reserved.</span>
       <span>Made with ❤️ by Michael Mancini</span>
       <div className="border-1 border-gray-300 text-black text-xs rounded-4xl py-1 px-3 my-1 flex gap-3 items-center">
         <div className="relative flex size-2 items-center justify-center">
@@ -571,14 +595,12 @@ function Footer() {
 }
 
 const featuredTestimonial = {
-  // body: "Integer id nunc sit semper purus. Bibendum at lacus ut arcu blandit montes vitae auctor libero. Hac condimentum dignissim nibh vulputate ut nunc. Amet nibh orci mi venenatis blandit vel et proin. Non hendrerit in vel ac diam.",
   // body: "Stack AI is creating an AI Agent Stack, providing an intuitive no-code interface for users and enterprises to configure automated AI processes using custom stacks of tools and features to create perfect agents designed to do anything you want.",
-  body: "At the heart of a tech stack is a genuine desire to build software that provides the best possible experience to the user to accomplish any task. This includes everything from a beautiful design to efficiently interacting with data, developed in a way to iteratively expand the functionality frequently and predictably.",
+  body: "The tech stack is the heart of a software system; the culmination of compnents and tools that provide the best possible experience to the user to accomplish any task. This includes everything from a beautiful design to efficient data requests, developed in a way to iteratively expand the functionality frequently and predictably.",
   author: {
-    name: "Brenna Goyette",
-    handle: "brennagoyette",
-    imageUrl:
-      "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=1024&h=1024&q=80",
+    name: "Michael Mancini",
+    handle: "Senior Frontend & Fullstack Software Engineer",
+    imageUrl: "/cat-avatar.jpg",
     logoUrl:
       "https://tailwindcss.com/plus-assets/img/logos/savvycal-logo-gray-900.svg",
   },
@@ -588,21 +610,21 @@ const testimonials = [
   [
     [
       {
-        body: "The best framework for building complex applications with a highly optimized client-server integration for peak performance and maintainability. Server actions, API endpoints, React.",
+        body: "The best framework for building complex applications with a highly optimized client-server integration for peak performance and maintainability. Server actions, API endpoints, ORM integrations, React, Typescript, accessible developer relations - this is the cutting edge of web development.",
         author: {
           name: "Next.js & Vercel",
           handle: "lesliealexander",
           imageUrl:
-            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/1024px-Nextjs-logo.svg.png",
         },
       },
       {
-        body: "Hooks, state managment using reducer-context & zustand, efficient data loading and caching.",
+        body: "Hooks, server components, state managment patterns (reducer-context, zustand, tanstack, ...), efficient data loading and caching, rendering strategies, streaming, community engagement - all of this makes for a fun and optimized way to build web & hybrid applications.",
         author: {
-          name: "React",
-          handle: "michaelfoster",
+          name: "",
+          handle: "",
           imageUrl:
-            "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+            "https://www.vhv.rs/dpng/d/590-5903330_reactjs-logo-react-js-transparent-icon-hd-png.png",
         },
       },
     ],
@@ -613,7 +635,7 @@ const testimonials = [
           name: "React Flow",
           handle: "lindsaywalton",
           imageUrl:
-            "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+            "https://www.drupal.org/files/project-images/99999999999999999_1_2a116db3f4.png",
         },
       },
     ],
@@ -621,12 +643,12 @@ const testimonials = [
   [
     [
       {
-        body: "UI design using the best in the industry.",
+        body: "UI design using the best tools in the industry - Tailwind, Shadcn, RadixUI, HeadlessUI, Motion (Framer), and a strong foundational understanding of CSS, design systems, and optimized rendering & styling in the browser.",
         author: {
           name: "Shadcn, Radix, Tailwind, Motion",
           handle: "tomcook",
           imageUrl:
-            "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Tailwind_CSS_logo.svg/2560px-Tailwind_CSS_logo.svg.png",
         },
       },
     ],
@@ -637,16 +659,16 @@ const testimonials = [
           name: "Supabase & Replicate",
           handle: "leonardkrasner",
           imageUrl:
-            "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+            "https://media2.dev.to/dynamic/image/width=1280,height=720,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fj2lzckut9q9mdcptril2.png",
         },
       },
       {
-        body: "Prompt engineering & VS Code AI-auto-complete make for powerful code generation, leveraged by the best developers to increase productivity more than your wildest dreams.",
+        body: "Embracing code generation using prompt engineering & IDE-based-AI-auto-complete can be leveraged to increase productivity more than your wildest dreams. 10x developers are becoming 100x developers.",
         author: {
           name: "Copilot & AI-assisted coding",
           handle: "floydmiles",
           imageUrl:
-            "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+            "https://images.icon-icons.com/3053/PNG/512/microsoft_visual_studio_code_macos_bigsur_icon_189957.png",
         },
       },
     ],
@@ -704,9 +726,9 @@ function TechStack() {
                 <div className="font-semibold text-gray-900 dark:text-white">
                   {featuredTestimonial.author.name}
                 </div>
-                <div className="text-gray-600 dark:text-gray-400">{`@${featuredTestimonial.author.handle}`}</div>
+                <div className="text-gray-600 dark:text-gray-400">{`${featuredTestimonial.author.handle}`}</div>
               </div>
-              <img
+              {/* <img
                 alt=""
                 src={featuredTestimonial.author.logoUrl}
                 className="h-10 w-auto flex-none dark:hidden"
@@ -718,7 +740,7 @@ function TechStack() {
                   "-gray-100"
                 )}
                 className="h-10 w-auto flex-none not-dark:hidden"
-              />
+              /> */}
             </figcaption>
           </figure>
           {testimonials.map((columnGroup, columnGroupIdx) => (
@@ -744,20 +766,20 @@ function TechStack() {
                       className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800/75 dark:shadow-none dark:ring-white/10"
                     >
                       <blockquote className="text-gray-900 dark:text-white">
-                        <p>{`“${testimonial.body}”`}</p>
+                        <p>{`${testimonial.body}`}</p>
                       </blockquote>
                       <figcaption className="mt-6 flex items-center gap-x-4">
                         <img
                           alt=""
                           src={testimonial.author.imageUrl}
-                          className="size-10 rounded-full bg-gray-50 dark:bg-gray-700"
+                          className="bg-gray-50 dark:bg-gray-700"
                         />
-                        <div>
+                        {/* <div>
                           <div className="font-semibold text-gray-900 dark:text-white">
                             {testimonial.author.name}
                           </div>
                           <div className="text-gray-600 dark:text-gray-400">{`@${testimonial.author.handle}`}</div>
-                        </div>
+                        </div> */}
                       </figcaption>
                     </figure>
                   ))}
@@ -795,18 +817,20 @@ function AboutSection() {
                 What is this?
               </h2>
               <p className="mt-6 text-lg/8 text-pretty text-gray-600 dark:text-gray-400">
-                Lorem ipsum dolor sit amet consect adipisicing elit. Possimus
-                magnam voluptatum cupiditate veritatis in accusamus quisquam.
+                There are many cool YC companies and job listings - however this
+                company is exactly what I'm looking for and I believe I am the{" "}
+                {""}
+                <span className="font-semibold">best possible fit</span> for the
+                open Software Engineering roles. The goal of this project is to
+                demonstrate my interest in Stack AI specifically, which warrants
+                a special job application to make it clear that I am not
+                treating this like a regular job, rather an opportunity to join
+                a community of people working hard to change the landscape of
+                no-code software development by leveraging the latest
+                innovations in tech & AI to provide value and liberation at a
+                massive scale, while enjoying every step of the process.
               </p>
-              <p className="mt-6 text-lg/8 text-pretty text-gray-600 dark:text-gray-400">
-                5 pages in the /dashboard route group, 5 pages in the
-                /project/[id] group, plus a login page and this landing page. I
-                encourage you to check out all of them, but if you&apos;re in a
-                hurry you can see my skills in the Knowledge Bases page, my work
-                experience in the Workflow page, my answers to interview
-                questions in the Manager page, and an complete evaluation of
-                everything in the Evaluator page.
-              </p>
+
               <ul
                 role="list"
                 className="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base/7 text-gray-950 sm:grid-cols-2 dark:text-gray-200"
@@ -823,14 +847,14 @@ function AboutSection() {
               </ul>
               <div className="mt-10 flex justify-between">
                 <a
-                  href="#"
+                  href="/dashboard/projects"
                   className="text-sm/6 font-semibold text-indigo-600 hover:text-indigo-300 dark:text-indigo-400 dark:hover:text-indigo-300"
                 >
                   See the Dashboard
                   <span aria-hidden="true">&rarr;</span>
                 </a>
                 <a
-                  href="#"
+                  href="/project/career/workflow"
                   className="text-sm/6 font-semibold text-indigo-600 hover:text-indigo-300 dark:text-indigo-400 dark:hover:text-indigo-300"
                 >
                   See the Workflow Editor
@@ -839,13 +863,35 @@ function AboutSection() {
               </div>
 
               <p className="mt-6 text-lg/8 text-pretty text-gray-600 dark:text-gray-400">
-                5 pages in the /dashboard route group, 5 pages in the
-                /project/[id] group, plus a login page and this landing page. I
-                encourage you to check out all of them, but if you&apos;re in a
-                hurry you can see my skills in the Knowledge Bases page, my work
-                experience in the Workflow page, my answers to interview
-                questions in the Manager page, and an complete evaluation of
-                everything in the Evaluator page.
+                I used the same structure as Stack AI to build 5 pages in the{" "}
+                <span className="text-slate-900">/dashboard/*</span> route
+                group, 5 pages in the{" "}
+                <span className="text-slate-900">/project/[id]/*</span> routes,
+                a replica of your{" "}
+                <span className="text-slate-900">/auth/login</span> page
+                including the fancy 3D hover effect and branding assets, and
+                this lavish landing page. I added some fun elements throughout
+                the site, and{" "}
+                <span className="font-semibold">
+                  I encourage you to check out all of them,
+                </span>{" "}
+                but if you&apos;re in a hurry you can see my skills in the{" "}
+                <Link href="/dashboard/knowledge-bases" className="underline">
+                  Knowledge Bases page
+                </Link>
+                , my work experience in the{" "}
+                <Link href="/project/career/workflow" className="underline">
+                  Workflow page
+                </Link>
+                , my inspiration in the{" "}
+                <Link href="/project/career/manager" className="underline">
+                  Manager page
+                </Link>
+                , and an complete evaluation of everything in the{" "}
+                <Link href="/project/career/evaluator" className="underline">
+                  Evaluator page
+                </Link>
+                .
               </p>
             </div>
           </div>

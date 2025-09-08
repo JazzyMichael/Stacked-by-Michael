@@ -14,7 +14,7 @@ export function ProjectHeader() {
   const baseURL = path.join("/");
 
   return (
-    <nav className="flex justify-between items-center px-4 h-[52.5px] border-b border-black/[0.1] bg-white">
+    <nav className="flex justify-between items-center px-4 h-[52.5px] border-b border-black/[0.1] bg-white sticky top-0">
       <div className="flex items-center gap-3">
         <NavLogo />
 

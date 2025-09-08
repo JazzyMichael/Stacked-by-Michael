@@ -17,7 +17,13 @@ import {
 } from "@/components/ui/sidebar";
 import { useDragDrop } from "@/hooks/DragDrop";
 import { getNodeType } from "./nodes/data";
-import { borderColors, iconColors, textColors, bgColors } from "@/lib/data";
+import {
+  borderColors,
+  iconColors,
+  textColors,
+  bgColors,
+  subIconColors,
+} from "@/lib/data";
 
 export function NavCollapsible({
   items,
@@ -104,7 +110,9 @@ export function NavCollapsible({
                           }`}
                         >
                           {subItem.icon && (
-                            <subItem.icon className="group-hover/nodeitem:rotate-[360deg] group-hover/nodeitem:scale-125 transition-transform duration-500 mr-1" />
+                            <subItem.icon
+                              className={`group-hover/nodeitem:rotate-[360deg] group-hover/nodeitem:scale-125 transition-all duration-500 mr-1 ${subIconColors[ii]}`}
+                            />
                           )}
                           <span className="grow">{subItem.title}</span>
                           <Menu />

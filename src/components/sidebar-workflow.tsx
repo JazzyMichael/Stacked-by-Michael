@@ -100,7 +100,7 @@ export function WorkflowSidebar({
         )}
       </SidebarHeader>
 
-      <SidebarContent className="scrollbar-hidden overflow-y-auto">
+      <SidebarContent className="scrollbar-hidden overflow-y-auto pb-4">
         <NavCollapsible items={nodeNavItems} />
       </SidebarContent>
 

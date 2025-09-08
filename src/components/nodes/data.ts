@@ -27,7 +27,17 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
-import { PythonIcon } from "@/lib/custom-icons";
+import {
+  AnthropicIcon,
+  GeminiIcon,
+  MetaIcon,
+  MistralIcon,
+  OpenAIIcon,
+  PerplexityIcon,
+  PythonIcon,
+  ReplicateIcon,
+  XAIIcon,
+} from "@/lib/custom-icons";
 
 import {
   InputNode,
@@ -143,12 +153,14 @@ export const nodeNavItems = [
     url: "#",
     disabled: true,
     items: [
-      { title: "OpenAI", icon: StickyNote, url: "#" },
-      { title: "Anthropic", icon: StickyNote, url: "#" },
-      { title: "Google", icon: StickyNote, url: "#" },
-      { title: "Meta", icon: StickyNote, url: "#" },
-      { title: "Mistral", icon: StickyNote, url: "#" },
-      { title: "Replicate", icon: StickyNote, url: "#" },
+      { title: "OpenAI", icon: OpenAIIcon, url: "#" },
+      { title: "Anthropic", icon: AnthropicIcon, url: "#" },
+      { title: "Google", icon: GeminiIcon, url: "#" },
+      { title: "XAI", icon: XAIIcon, url: "#" },
+      { title: "Meta", icon: MetaIcon, url: "#" },
+      { title: "Mistral", icon: MistralIcon, url: "#" },
+      { title: "Replicate", icon: ReplicateIcon, url: "#" },
+      { title: "Perplexity", icon: PerplexityIcon, url: "#" },
     ],
   },
   {
