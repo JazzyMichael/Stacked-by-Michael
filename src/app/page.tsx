@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { CalendarClock, CheckCircle, Cloud, Lock, Server } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { asciiLogo } from "@/lib/ascii-art";
+import { Fragment } from "react";
 
 const placeholderImage =
   "https://framerusercontent.com/images/CXQ0y8QtXsQfoTEbe9iuOSDLJE.svg";
@@ -303,6 +304,31 @@ export default function Page() {
 function HeroSection() {
   return (
     <div className="relative isolate px-6 pt-14 lg:px-8 mb-20">
+      {/* aesthetics */}
+      <div className="absolute top-0 lg:left-1/2 lg:translate-x-[-50%] lg:border-x-1 border-gray-300 w-full max-w-6xl mx-auto h-[700px]">
+        <Image
+          src="/stack-ai-shape-1.webp"
+          alt="Shape"
+          width={1011}
+          height={1024}
+          className="absolute left-[-120px] top-6 z-40 w-48 h-48 hidden lg:block animate-spin animation-duration-30000 hover:scale-125 transition-transform duration-500"
+        />
+        <div className="border-b-1 border-gray-300 w-full max-w-6xl h-[140px]"></div>
+        <Image
+          src="/stack-ai-shape-2.avif"
+          alt="Shape"
+          width={512}
+          height={467}
+          className="absolute top-[520px] left-[1050px] z-40 w-48 h-48 hidden lg:block animate-bounce animation-duration-1500 hover:scale-125 transition-transform duration-500"
+        />
+      </div>
+
+      {/* aesthetic line */}
+      <div className="absolute top-[700px] -z-10 left-0 border-t-1 border-gray-300 w-full h-1">
+        <HorizontalLogoScroll />
+      </div>
+
+      {/* aesthetic faded gradients */}
       <div
         aria-hidden="true"
         className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -315,6 +341,7 @@ function HeroSection() {
           className="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75"
         />
       </div>
+
       <div className="mx-auto max-w-2xl py-24 sm:py-36 lg:py-40">
         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
           <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
@@ -358,6 +385,8 @@ function HeroSection() {
           </div>
         </div>
       </div>
+
+      {/* aesthetic gradient background */}
       <div
         aria-hidden="true"
         className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
@@ -369,6 +398,47 @@ function HeroSection() {
           }}
           className="relative left-[calc(50%+3rem)] aspect-1155/678 w-144.5 -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-288.75"
         />
+      </div>
+    </div>
+  );
+}
+
+function HorizontalLogoScroll() {
+  return (
+    <div className="overflow-hidden hidden md:block border-b-1 border-gray-300 [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
+      <div className="flex items-center gap-8 py-8 w-full animate-scroll opacity-60">
+        {new Array(20).fill(true).map((_, i) => (
+          <Fragment key={`scroll-${i}`}>
+            <Image
+              src="/stack-ai-logo-image.svg"
+              alt="StackAI Logo"
+              width={107}
+              height={109}
+              className="h-6"
+            />
+            <Image
+              src="/stack-ai-logo-text.svg"
+              alt="StackAI Logo"
+              width={325}
+              height={73}
+              className="h-6"
+            />
+            <Image
+              src="/colored-logo.svg"
+              alt="StackAI Logo"
+              width={107}
+              height={109}
+              className="h-6"
+            />
+            <Image
+              src="/stack-ai-logo-text.svg"
+              alt="StackAI Logo"
+              width={325}
+              height={73}
+              className="h-6"
+            />
+          </Fragment>
+        ))}
       </div>
     </div>
   );
