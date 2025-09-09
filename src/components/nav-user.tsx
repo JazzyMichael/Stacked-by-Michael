@@ -17,6 +17,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { redirect } from "next/navigation";
 
 export function NavUser({
   user,
@@ -83,7 +84,7 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={() => redirect("/")}>
               <LogOut />
               Log out
             </DropdownMenuItem>

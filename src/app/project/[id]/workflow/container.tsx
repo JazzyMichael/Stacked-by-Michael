@@ -13,6 +13,7 @@ export default function Container({
 }) {
   return (
     <SidebarProvider
+      defaultOpen={false}
       style={
         {
           "--sidebar-width": "275px",

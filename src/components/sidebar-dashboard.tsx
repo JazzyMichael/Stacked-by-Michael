@@ -48,6 +48,8 @@ import { NavLogo } from "./nav-logo";
 import { OrgSwitcher } from "./org-switcher";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
+import { searchData } from "@/lib/search-data";
+import { redirect } from "next/navigation";
 
 const navItems = {
   user: {
@@ -115,8 +117,12 @@ const navItems = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const [searchDialog, setSearchDialog] = useState(false);
+  const [query, setQuery] = useState("");
+  const [debouncedQuery, setDebouncedQuery] = useState(query);
+  const [searchResultsMap, setSearchResultsMap] = useState(new Map());
   const { toggleSidebar, state } = useSidebar();
 
+  // Listen for keyboard shortcut
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
@@ -127,6 +133,34 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
   }, []);
+
+  // Listen for search query changes
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedQuery(query.trim().toLowerCase());
+    }, 500);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [query]);
+
+  // Perform action on debounced query changes
+  useEffect(() => {
+    if (!searchResultsMap.get(debouncedQuery)) {
+      const matches = searchData.filter(({ content }) => {
+        return content.some((str) => str.includes(debouncedQuery));
+      });
+
+      console.log(matches);
+
+      setSearchResultsMap((prevMap) => {
+        const newMap = new Map(prevMap);
+        newMap.set(debouncedQuery, matches);
+        return newMap;
+      });
+    }
+  }, [debouncedQuery]);
 
   return (
     <>
@@ -163,41 +197,34 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarRail />
       </Sidebar>
 
-      <CommandDialog open={searchDialog} onOpenChange={setSearchDialog}>
-        <CommandInput placeholder="Type a command or search..." />
+      <CommandDialog
+        shouldFilter={false}
+        open={searchDialog}
+        onOpenChange={setSearchDialog}
+      >
+        <CommandInput
+          placeholder="Search keywords across the entire site..."
+          value={query}
+          onValueChange={setQuery}
+        />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Suggestions">
-            <CommandItem>
-              <Calendar />
-              <span>Calendar</span>
-            </CommandItem>
-            <CommandItem>
-              <Smile />
-              <span>Search Emoji</span>
-            </CommandItem>
-            <CommandItem>
-              <Calculator />
-              <span>Calculator</span>
-            </CommandItem>
-          </CommandGroup>
-          <CommandSeparator />
-          <CommandGroup heading="Settings">
-            <CommandItem>
-              <User />
-              <span>Profile</span>
-              <CommandShortcut>⌘P</CommandShortcut>
-            </CommandItem>
-            <CommandItem>
-              <CreditCard />
-              <span>Billing</span>
-              <CommandShortcut>⌘B</CommandShortcut>
-            </CommandItem>
-            <CommandItem>
-              <Settings />
-              <span>Settings</span>
-              <CommandShortcut>⌘S</CommandShortcut>
-            </CommandItem>
+          <CommandGroup>
+            {debouncedQuery &&
+              (searchResultsMap.get(debouncedQuery) ?? []).map(
+                (item: any, i: number) => (
+                  <CommandItem
+                    key={i}
+                    onSelect={() => {
+                      setSearchDialog(false);
+                      redirect(item.url);
+                    }}
+                  >
+                    <item.icon />
+                    {item.page}
+                  </CommandItem>
+                )
+              )}
           </CommandGroup>
         </CommandList>
       </CommandDialog>

@@ -473,10 +473,14 @@ function ListItem({
           onClick={() => {
             toast.info("Usually this would navigate to a marketing page", {
               duration: 2000,
-              action: {
-                label: "Go to the dashboard instead!",
-                onClick: () => redirect("/dashboard/projects"),
-              },
+              action: (
+                <Button
+                  variant={"outline"}
+                  onClick={() => redirect("/dashboard/projects")}
+                >
+                  Go to Dashboard
+                </Button>
+              ),
             });
           }}
         >

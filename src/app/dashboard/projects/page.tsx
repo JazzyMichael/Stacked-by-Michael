@@ -3,11 +3,8 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   ChevronDown,
-  CircleUser,
-  Filter,
   LayoutGrid,
   Plus,
-  ScrollText,
   Search,
   Settings2,
   TableProperties,
@@ -29,6 +26,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { publishedOptions, sortOptions, projects, tabledata } from "./data";
 import { DataTable } from "./data-table";
+import ProjectFolders from "./folders";
 
 export default function Page() {
   return (
@@ -66,31 +64,7 @@ export default function Page() {
       </div>
 
       {/* left content */}
-      <div className="bg-white border-r-1 overflow-y-auto p-3">
-        <Button
-          variant="outline"
-          className="w-full mb-2 justify-start bg-white"
-        >
-          <Plus className="size-5 stroke-gray-600" /> New Folder
-        </Button>
-
-        <div className="flex gap-2">
-          <Input placeholder="Search folders" />
-
-          <Button variant="outline" size="icon" className="bg-white">
-            <Filter className="size-4" />
-          </Button>
-        </div>
-
-        <div id="list" className="flex flex-col gap-2 pt-3">
-          <div className="flex items-center gap-3 text-[15px] hover:bg-gray-200 px-3 py-1 rounded-sm cursor-pointer">
-            <CircleUser className="size-5" strokeWidth={1.5} /> My Projects
-          </div>
-          <div className="flex items-center gap-3 text-[15px] hover:bg-gray-200 px-3 py-1 rounded-sm cursor-pointer">
-            <ScrollText className="size-5" strokeWidth={1.5} /> All General
-          </div>
-        </div>
-      </div>
+      <ProjectFolders />
 
       {/* right content */}
       <div className="px-8 py-4">
