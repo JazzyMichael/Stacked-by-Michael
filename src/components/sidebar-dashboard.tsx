@@ -4,11 +4,8 @@ import {
   Activity,
   ArrowLeftRight,
   Bell,
-  Calculator,
-  Calendar,
   ChartNoAxesColumnIncreasing,
   CircleQuestionMark,
-  CreditCard,
   Database,
   Hamburger,
   House,
@@ -16,11 +13,7 @@ import {
   PanelLeftOpen,
   PanelRightOpen,
   Search,
-  Settings,
-  Smile,
   SquarePen,
-  Type,
-  User,
   UsersRound,
 } from "lucide-react";
 import {
@@ -38,8 +31,6 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
-  CommandShortcut,
 } from "@/components/ui/command";
 import { NavMain } from "@/components/nav-main";
 import { NavProjects } from "@/components/nav-projects";

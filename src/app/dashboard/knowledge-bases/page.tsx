@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-import { DataTable } from "./DataTable";
+import { DataTable } from "./data-table";
 import { tabledata } from "./data";
 import { toast } from "sonner";
 

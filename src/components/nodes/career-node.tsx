@@ -1,17 +1,16 @@
-import { memo, useCallback } from "react";
+import { memo } from "react";
 import Image from "next/image";
 import { Card, CardHeader, CardTitle, CardContent } from "../ui/card";
-import { Handle, Position, useNodeId, useReactFlow } from "@xyflow/react";
+import { Handle, Position } from "@xyflow/react";
 
 export const CareerNode = memo(
   ({ data, isConnectable }: { data: any; isConnectable: boolean }) => {
-    const id = useNodeId();
-    const { setNodes } = useReactFlow();
-
-    // TODO: add alert dialog to confirm delete
-    const handleDelete = useCallback(() => {
-      setNodes((prevNodes) => prevNodes.filter((node) => node.id !== id));
-    }, [id, setNodes]);
+    // Delete functionality for testing & creating initial layout
+    // const id = useNodeId();
+    // const { setNodes } = useReactFlow();
+    // const handleDelete = useCallback(() => {
+    //   setNodes((prevNodes) => prevNodes.filter((node) => node.id !== id));
+    // }, [id, setNodes]);
 
     return (
       <Card className="w-full max-w-2xl mx-auto shadow-lg rounded-2xl">

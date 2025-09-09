@@ -40,7 +40,7 @@ export default function ProjectFolders() {
       <Button
         disabled={folders.length > 5}
         variant="outline"
-        className="w-full mb-2 justify-start bg-white"
+        className="w-full mb-2 justify-start bg-white select-none"
         onClick={() => addFolder("Food")}
       >
         <Plus className="size-5 stroke-gray-600" /> New Folder
@@ -76,8 +76,9 @@ export default function ProjectFolders() {
           .filter(
             (f) => f.label.toLowerCase().indexOf(query.toLowerCase()) > -1
           )
-          .map((folder) => (
+          .map((folder, i) => (
             <div
+              key={`${folder.label}-${i}`}
               className="flex items-center gap-3 text-[15px] hover:bg-gray-200 px-3 py-1 rounded-sm cursor-pointer"
               onClick={() => toast.success("Choose one of the projects :)")}
             >

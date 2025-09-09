@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import {
   Column,
   ColumnDef,
@@ -57,7 +56,6 @@ import {
   ChevronLeft,
   ChevronRight,
   EyeOff,
-  TrendingUp,
   CircleCheck,
   Loader,
   EllipsisVertical,
@@ -71,6 +69,7 @@ import {
   Lock,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 const columns: ColumnDef<TableSchema>[] = [
   {
@@ -300,20 +299,17 @@ function TableCellViewer({ item }: { item: TableSchema }) {
 }
 
 export function DataTable({ data: initialData }: { data: TableSchema[] }) {
-  const [data, setData] = React.useState(() => initialData);
-  const [rowSelection, setRowSelection] = React.useState({});
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({});
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  );
-  const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [pagination, setPagination] = React.useState({
+  const [data, setData] = useState(() => initialData);
+  const [rowSelection, setRowSelection] = useState({});
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+  const [sorting, setSorting] = useState<SortingState>([]);
+  const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 15,
   });
   // Use this to avoid rendering the entire table on pageSize changes
-  const [pageSize, setPageSize] = React.useState(15);
+  const [pageSize, setPageSize] = useState(15);
 
   const table = useReactTable({
     data,

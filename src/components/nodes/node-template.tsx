@@ -2,7 +2,7 @@ import { memo, ReactNode, useCallback } from "react";
 import { Handle, Position, useNodeId, useReactFlow } from "@xyflow/react";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
-import { Clock, EllipsisVertical, Trash2 } from "lucide-react";
+import { Clock, Trash2 } from "lucide-react";
 import { nodeTitleIconMap } from "./data";
 
 export default memo(

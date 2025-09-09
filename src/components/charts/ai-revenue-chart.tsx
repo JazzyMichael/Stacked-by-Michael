@@ -1,13 +1,7 @@
 "use client";
 
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   ChartConfig,
   ChartContainer,
@@ -43,14 +37,6 @@ const chartConfig = {
 export function AIRevenueChart() {
   return (
     <Card className="p-2 rounded-none rounded-b-md border-none shadow-none">
-      {/* <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row">
-        <div className="grid flex-1 gap-1">
-          <CardTitle>AI Revenue</CardTitle>
-          <CardDescription>
-            Estimated revenue in the big 4 AI companies
-          </CardDescription>
-        </div>
-      </CardHeader> */}
       <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6">
         <ChartContainer
           config={chartConfig}

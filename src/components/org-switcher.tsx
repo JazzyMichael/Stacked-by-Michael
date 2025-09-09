@@ -51,10 +51,10 @@ export function OrgSwitcher({
               <ChevronsUpDown className="size-5! ml-auto stroke-gray-500" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
-          {/* <DropdownMenuContent
+          <DropdownMenuContent
             className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
             align="start"
-            side={isMobile ? "bottom" : "right"}
+            side={isMobile ? "bottom" : "top"}
             sideOffset={4}
           >
             {organizations.map((org, i) => (
@@ -71,7 +71,7 @@ export function OrgSwitcher({
                 {i < organizations.length - 1 && <DropdownMenuSeparator />}
               </Fragment>
             ))}
-          </DropdownMenuContent> */}
+          </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
     </SidebarMenu>
