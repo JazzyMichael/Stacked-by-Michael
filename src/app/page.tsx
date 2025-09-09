@@ -16,6 +16,8 @@ import { CalendarClock, CheckCircle, Cloud, Lock, Server } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { asciiLogo } from "@/lib/ascii-art";
 import { Fragment } from "react";
+import { toast } from "sonner";
+import { redirect } from "next/navigation";
 
 const placeholderImage =
   "https://framerusercontent.com/images/CXQ0y8QtXsQfoTEbe9iuOSDLJE.svg";
@@ -179,109 +181,7 @@ export default function Page() {
       >
         <Logo />
 
-        <NavigationMenuList className="hidden md:flex">
-          <NavigationMenuItem className="z-40">
-            <NavigationMenuTrigger onClick={(e) => e.preventDefault()}>
-              Solutions
-            </NavigationMenuTrigger>
-            <NavigationMenuContent className="z-50">
-              <div className="text-xs text-gray-400 font-bold p-2">PRODUCT</div>
-              <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                {navItems.product.map((component) => (
-                  <ListItem
-                    key={component.title}
-                    title={component.title}
-                    description={component.description}
-                    image={component.image}
-                  ></ListItem>
-                ))}
-              </ul>
-
-              <div className="text-xs text-gray-400 font-bold p-2">
-                INDUSTRIES
-              </div>
-              <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                {navItems.industries.map((component) => (
-                  <ListItem
-                    key={component.title}
-                    title={component.title}
-                    description={component.description}
-                    image={component.image}
-                  ></ListItem>
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem className="z-40 hidden lg:list-item hover:bg-white">
-            <NavigationMenuLink
-              asChild
-              className={navigationMenuTriggerStyle()}
-            >
-              <Link href="#">Templates</Link>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem className="z-40 hidden lg:list-item">
-            <NavigationMenuLink
-              asChild
-              className={navigationMenuTriggerStyle()}
-            >
-              <Link href="#">Customers</Link>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem className="z-40 hidden lg:list-item bg-white">
-            <NavigationMenuLink
-              asChild
-              className={navigationMenuTriggerStyle()}
-            >
-              <Link href="#">Pricing</Link>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem className="z-40 bg-white">
-            <NavigationMenuTrigger
-              onClick={(e) => e.preventDefault()}
-              className="bg-white!"
-            >
-              Resources
-            </NavigationMenuTrigger>
-            <NavigationMenuContent className="z-50">
-              <div className="text-xs text-gray-400 font-bold p-2">
-                EXPLORE STACKAI
-              </div>
-              <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                {navItems["explore stackai"].map((component) => (
-                  <ListItem
-                    key={component.title}
-                    title={component.title}
-                    href={component.href ?? ""}
-                    description={component.description}
-                  ></ListItem>
-                ))}
-              </ul>
-
-              <div className="text-xs text-gray-400 font-bold p-2">
-                STAY CONNECTED
-              </div>
-              <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                {navItems["stay connected"].map((component) => (
-                  <ListItem
-                    key={component.title}
-                    title={component.title}
-                    href={component.href ?? ""}
-                    description={component.description}
-                  ></ListItem>
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem className="z-40 hidden lg:list-item bg-white">
-            <NavigationMenuLink
-              asChild
-              className={navigationMenuTriggerStyle()}
-            >
-              <Link href="#">Talk to Us</Link>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-        </NavigationMenuList>
+        <NavItemList />
 
         <Buttons />
       </NavigationMenu>
@@ -532,10 +432,10 @@ function Logo() {
 
 function Buttons() {
   return (
-    <div className="hidden md:flex gap-2 z-50">
+    <div className="flex gap-2 z-50">
       <Button
         variant="secondary"
-        className="bg-gray-200 hover:bg-gray-300"
+        className="bg-gray-200 hover:bg-gray-300 hidden sm:flex"
         asChild
       >
         <a href="/auth/login">Login</a>
@@ -567,7 +467,19 @@ function ListItem({
   return (
     <li {...props}>
       <NavigationMenuLink asChild>
-        <Link href={href} className="flex flex-row gap-2 items-start py-2">
+        <Link
+          href={href}
+          className="flex flex-row gap-2 items-start py-2"
+          onClick={() => {
+            toast.info("Usually this would navigate to a marketing page", {
+              duration: 2000,
+              action: {
+                label: "Go to the dashboard instead!",
+                onClick: () => redirect("/dashboard/projects"),
+              },
+            });
+          }}
+        >
           <Image
             aria-hidden
             src={image}
@@ -586,6 +498,110 @@ function ListItem({
         </Link>
       </NavigationMenuLink>
     </li>
+  );
+}
+
+function NavItemList() {
+  return (
+    <NavigationMenuList className="hidden md:flex">
+      <NavigationMenuItem className="z-40">
+        <NavigationMenuTrigger onClick={(e) => e.preventDefault()}>
+          Solutions
+        </NavigationMenuTrigger>
+        <NavigationMenuContent className="z-50 flex">
+          <div>
+            <div className="text-xs text-gray-400 font-bold p-2">PRODUCT</div>
+            <ul className="grid gap-2 w-[300px] lg:grid-cols-[1fr]">
+              {navItems.product.map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  description={component.description}
+                  image={component.image}
+                ></ListItem>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <div className="text-xs text-gray-400 font-bold p-2">
+              INDUSTRIES
+            </div>
+            <ul className="grid gap-2 w-[300px] lg:grid-cols-[1fr]">
+              {navItems.industries.map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  description={component.description}
+                  image={component.image}
+                ></ListItem>
+              ))}
+            </ul>
+          </div>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+      <NavigationMenuItem className="z-40 hidden lg:list-item hover:bg-white">
+        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+          <Link href="#">Templates</Link>
+        </NavigationMenuLink>
+      </NavigationMenuItem>
+      <NavigationMenuItem className="z-40 hidden lg:list-item">
+        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+          <Link href="#">Customers</Link>
+        </NavigationMenuLink>
+      </NavigationMenuItem>
+      <NavigationMenuItem className="z-40 hidden lg:list-item bg-white">
+        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+          <Link href="#">Pricing</Link>
+        </NavigationMenuLink>
+      </NavigationMenuItem>
+      <NavigationMenuItem className="z-40 bg-white">
+        <NavigationMenuTrigger
+          onClick={(e) => e.preventDefault()}
+          className="bg-white!"
+        >
+          Resources
+        </NavigationMenuTrigger>
+        <NavigationMenuContent className="z-50 flex -left-40">
+          <div>
+            <div className="text-xs text-gray-400 font-bold p-2">
+              EXPLORE STACKAI
+            </div>
+            <ul className="grid gap-2 w-[300px]">
+              {navItems["explore stackai"].map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href ?? ""}
+                  description={component.description}
+                ></ListItem>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <div className="text-xs text-gray-400 font-bold p-2">
+              STAY CONNECTED
+            </div>
+            <ul className="grid gap-2 w-[300px]">
+              {navItems["stay connected"].map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href ?? ""}
+                  description={component.description}
+                ></ListItem>
+              ))}
+            </ul>
+          </div>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+      <NavigationMenuItem className="z-40 hidden lg:list-item bg-white">
+        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+          <Link href="#">Talk to Us</Link>
+        </NavigationMenuLink>
+      </NavigationMenuItem>
+    </NavigationMenuList>
   );
 }
 
