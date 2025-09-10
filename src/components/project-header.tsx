@@ -7,6 +7,7 @@ import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
 import { Folder, Play } from "lucide-react";
 import { Switch } from "./ui/switch";
 import { toast } from "sonner";
+import Link from "next/link";
 
 export function ProjectHeader() {
   const path = usePathname().trim().split("/");
@@ -38,7 +39,9 @@ export function ProjectHeader() {
       </div>
 
       <div className="items-end gap-4 text-[13.5px] font-medium hidden lg:flex">
-        <Folder className="size-[18px] stroke-gray-500 cursor-pointer" />
+        <Link href={"/dashboard/projects"}>
+          <Folder className="size-[18px] stroke-gray-500 cursor-pointer" />
+        </Link>
         {formatted} <Switch />
       </div>
 
