@@ -67,9 +67,10 @@ import {
   SquarePen,
   Trash2,
   Lock,
+  ScanEye,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 
 const columns: ColumnDef<TableSchema>[] = [
   {
@@ -173,7 +174,7 @@ const columns: ColumnDef<TableSchema>[] = [
   // },
   {
     id: "actions",
-    cell: () => (
+    cell: ({ row }) => (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
@@ -186,6 +187,13 @@ const columns: ColumnDef<TableSchema>[] = [
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-32">
+          <DropdownMenuItem asChild>
+            <TableCellViewer
+              item={row.original}
+              label="Open"
+              triggerClassNames="w-full justify-start pl-2 no-underline! cursor-default font-normal hover:bg-gray-100"
+            />
+          </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() => toast.info("No editing, just toast")}
           >
@@ -263,26 +271,55 @@ function DataTableColumnHeader<TData, TValue>({
   );
 }
 
-function TableCellViewer({ item }: { item: TableSchema }) {
+function TableCellViewer({
+  item,
+  label,
+  triggerClassNames,
+}: {
+  item: TableSchema;
+  label?: string;
+  triggerClassNames?: string;
+}) {
   const isMobile = useIsMobile();
 
   return (
     <Drawer direction={isMobile ? "bottom" : "right"}>
       <DrawerTrigger asChild>
-        <Button variant="link" className="text-foreground w-fit px-0 text-left">
-          {item.label}
+        <Button
+          variant="link"
+          className={cn(
+            "text-foreground w-fit px-0 text-left",
+            triggerClassNames
+          )}
+        >
+          {label ?? item.label}
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="w-[40%]">
+      <DrawerContent className="w-2xl! max-w-full!">
         <DrawerHeader className="gap-1">
           <DrawerTitle>{item.label}</DrawerTitle>
         </DrawerHeader>
 
         <Separator />
 
-        <div className="flex flex-col gap-4 overflow-y-auto px-4 text-md mt-10">
+        <div className="flex flex-col gap-4 overflow-y-auto px-4 py-8 text-md">
+          {item.new?.map((item, i) => (
+            <div
+              key={i}
+              className={
+                item.type === "heading"
+                  ? "text-lg font-semibold pt-4"
+                  : "border-l-2 border-indigo-400 pl-4"
+              }
+            >
+              {item.text}
+            </div>
+          ))}
+
           {item.content?.map((item, i) => (
-            <div key={i}>{item}</div>
+            <div key={i} className="border-l-2 border-teal-300 pl-4">
+              {item}
+            </div>
           ))}
 
           <Separator />
@@ -338,9 +375,8 @@ export function DataTable({ data: initialData }: { data: TableSchema[] }) {
 
   return (
     <Tabs defaultValue="list" className="w-full flex-col justify-start gap-6">
-      {/* top row: search input, view tabs, filter dialog */}
+      {/* Heading Row: search input, tab selection, filter dialog */}
       <div className="flex gap-2">
-        {/* Search Input */}
         <div className="relative w-full">
           <Input
             placeholder="Search knowledge bases..."
@@ -505,9 +541,6 @@ export function DataTable({ data: initialData }: { data: TableSchema[] }) {
             <div className="flex flex-col justify-between border rounded-lg p-3 min-h-[148px] max-h-[214px] max-w-[600px] shadow-xs bg-white">
               <div className="flex justify-between items-start">
                 <div>
-                  {/* <h2 className="text-sm font-medium text-[#09090b] truncate mb-1">
-                    {item.label}
-                  </h2> */}
                   <TableCellViewer item={item} />
                   <p className="text-xs text-[#71717A] line-clamp-2">
                     {item.category}
@@ -535,7 +568,7 @@ export function DataTable({ data: initialData }: { data: TableSchema[] }) {
                     </DropdownMenuItem>
                     <DropdownMenuItem
                       variant="destructive"
-                      onClick={() => toast.error("You cant delete knowledge!")}
+                      onClick={() => toast.error("You can't delete knowledge!")}
                     >
                       <Trash2 /> Delete
                     </DropdownMenuItem>
