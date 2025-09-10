@@ -5,7 +5,8 @@ import { Handle, Position } from "@xyflow/react";
 
 export const CareerNode = memo(
   ({ data, isConnectable }: { data: any; isConnectable: boolean }) => {
-    // Delete functionality for testing & creating initial layout
+    // Delete functionality for testing & creating initial layout:
+
     // const id = useNodeId();
     // const { setNodes } = useReactFlow();
     // const handleDelete = useCallback(() => {
@@ -19,7 +20,6 @@ export const CareerNode = memo(
             type="target"
             position={Position.Left}
             isConnectable={isConnectable}
-            onConnect={(params) => console.log("handle connected", params)}
             style={{
               height: "20px",
               width: "20px",
@@ -101,7 +101,6 @@ export const CareerNode = memo(
           type="source"
           position={Position.Right}
           isConnectable={isConnectable}
-          onConnect={(params) => console.log("handle connected", params)}
           style={{
             height: "20px",
             width: "20px",

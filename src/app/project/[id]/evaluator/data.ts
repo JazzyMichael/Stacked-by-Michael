@@ -1,4 +1,4 @@
-type JobRequirement = {
+export type JobRequirement = {
   skill: string;
   experience: string;
 };
@@ -102,16 +102,16 @@ export const exceptionalFit: JobRequirement[] = [
     skill:
       "Knowledge of AI models and their application in enhancing frontend functionalities.",
     experience:
-      "This is apparent in modern dev tooling as well as application integrations using the latest models and patterns.",
+      "This is apparent in modern dev tooling as well as application integrations using the latest models and patterns. Google is also useful, as the AI search assistant is free and provides code generation based on the search query.",
   },
   {
     skill: "Familiarity with modern front-end build pipelines and tools.",
     experience:
-      "Git pipelines for pull requests and deployments are great for running automated tests and linting processes to ensure every release is smooth.",
+      "Git pipelines for pull requests and deployments are great for running automated tests and linting processes to ensure every release is smooth. I've built pipelines for every system I've worked on. This is a great type of task for AI assistance to handle, with human intervention only to guide and review.",
   },
   {
     skill:
       "A passion for AI and technology, with an eagerness to work in a dynamic startup environment.",
-    experience: "Exactly what Im looking for.",
+    experience: "Exactly what Im looking for - Let's do this!",
   },
 ];

@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
-
 export type TableSchema = {
   id: number;
   label: string;
@@ -7,8 +5,7 @@ export type TableSchema = {
   access: string;
   tokens: string;
   updated: string;
-  new?: { type: string; text: string }[];
-  content?: string[];
+  content: { type: string; text: string }[];
 };
 
 export const tabledata: TableSchema[] = [
@@ -19,7 +16,7 @@ export const tabledata: TableSchema[] = [
     access: "Public",
     tokens: "398",
     updated: "Today",
-    new: [
+    content: [
       {
         type: "heading",
         text: "Frontend & Fullstack Development",
@@ -93,7 +90,7 @@ export const tabledata: TableSchema[] = [
     access: "Public",
     tokens: "265",
     updated: "Today",
-    new: [
+    content: [
       {
         type: "body",
         text: "Cloud platforms like Supabase & Vercel provide infrastructure for cohesive backends supporting Databases, Storage, Auth, Functions, Web Sockets/Real-time events, etc...",
@@ -127,7 +124,11 @@ export const tabledata: TableSchema[] = [
     access: "Public",
     tokens: "410",
     updated: "Yesterday",
-    new: [
+    content: [
+      {
+        type: "heading",
+        text: "Brain-dump of what interests me about AI",
+      },
       {
         type: "body",
         text: "Working with cutting-edge developer tools like Copilot, Claude, GPT, Cursor, Windsurf, and Bolt empowers me to build faster and experiment more deeply with AI-driven development.",
@@ -152,32 +153,45 @@ export const tabledata: TableSchema[] = [
         type: "body",
         text: "Insights from leaders of the AI industry offer valuable perspective on the evolving economic landscape of major AI companies in the United States.",
       },
-    ],
-    content: [
-      "Staying up to date with the latest innovations and discussing them with others fuels my excitement, and moving to Silicon Valley will allow me to meet more people who share this passion.",
-      "Scientific breakthroughs across industries are incredibly exciting, and AI continues to be one of the most transformative forces driving them forward.",
-      "Transformers, Retrieval-Augmented Generation, Neural Networks, and MCP are just a few areas where I have developed a wide breadth of understanding, often diving deep into topics out of sheer curiosity.",
-      "Learning is the most fascinating aspect of life—it’s how growth happens—and exploring new frontiers like LLMs and AI infrastructure has become one of my greatest passions.",
-      "Leveraging the latest AI innovations to create meaningful value for society is a mission that deeply motivates me.",
-      "The AI 2027 paper served as a major inspiration, sparking my desire to study AI in depth, relocate to Silicon Valley, and pursue meaningful work with AI startups.",
-      "Experimentation with local LLMs such as Ollama and Mistral on my own machine provides hands-on experience with running models and testing their capabilities.",
-      "Stack AI represents an incredible market opportunity to abstract agent orchestration, giving businesses intuitive, powerful tools to streamline processes, increase efficiency, and iterate rapidly.",
+      {
+        type: "body",
+        text: "Staying up to date with the latest innovations and discussing them with others fuels my excitement, and moving to Silicon Valley will allow me to meet more people who share this passion.",
+      },
+      {
+        type: "body",
+        text: "Scientific breakthroughs across industries are incredibly exciting, and AI continues to be one of the most transformative forces driving them forward.",
+      },
+      {
+        type: "body",
+        text: "Transformers, Retrieval-Augmented Generation, Neural Networks, and MCP are just a few areas where I have developed a wide breadth of understanding, often diving deep into topics out of sheer curiosity.",
+      },
+      {
+        type: "body",
+        text: "Learning is the most fascinating aspect of life—it's how we grow. Exploring new frontiers like LLMs and AI infrastructure has become one of my greatest passions.",
+      },
+      {
+        type: "body",
+        text: "Leveraging the latest AI innovations to create meaningful value for society is a mission that deeply motivates me.",
+      },
+      {
+        type: "body",
+        text: "The AI 2027 paper served as a major inspiration, sparking my desire to study AI in depth, relocate to Silicon Valley, and pursue meaningful work with AI startups.",
+      },
+      {
+        type: "body",
+        text: "Experimentation with local LLMs such as Ollama and Mistral on my own machine provides hands-on experience with running models and testing their capabilities.",
+      },
+      {
+        type: "heading",
+        text: "Conclusion",
+      },
+      {
+        type: "body",
+        text: "Stack AI represents an incredible market opportunity to abstract agent orchestration, giving businesses intuitive, powerful tools to streamline processes, increase efficiency, and iterate rapidly.",
+      },
     ],
   },
-  {
-    id: 4,
-    label: "Hardware & Linux",
-    category: "General",
-    access: "Public",
-    tokens: "117",
-    updated: "Jamik Tashpulatov",
-    content: [
-      "Built my first computer when I was 17 for video editing and publishing Call-Of-Duty montages on Youtube.",
-      "Explored linux from both a user perspective and a research and operating system design perspective.",
-      "These days I prefer a nice Macbook.",
-      "I enjoy following the progress of the Stargate factory and how data centers are being created throughout the country, and the impact on compute and AI performance as well as the impact on the local economy of each city/location.",
-    ],
-  },
+
   // {
   //   id: 5,
   //   label: "Data Structures & Algorithms",
@@ -187,13 +201,13 @@ export const tabledata: TableSchema[] = [
   //   updated: "Jamik Tashpulatov",
   // },
   {
-    id: 6,
+    id: 5,
     label: "C, C++, C#, Rust, WASM",
     category: "Frontend, Backend",
     access: "Public",
     tokens: "252",
     updated: "Assign updated",
-    new: [
+    content: [
       {
         type: "heading",
         text: "Web",
@@ -221,6 +235,44 @@ export const tabledata: TableSchema[] = [
     ],
   },
   {
+    id: 6,
+    label: "Hardware & Linux",
+    category: "General",
+    access: "Public",
+    tokens: "117",
+    updated: "Jamik Tashpulatov",
+    content: [
+      {
+        type: "heading",
+        text: "PC Building & Operating System Culture",
+      },
+      {
+        type: "body",
+        text: "During my teenage years I was very interested in video editing. I published many Call of Duty montages on Youtube using Sony Vegas and After Effects to create artistic edits of gameplay. The way I chose my video editing software was based on which cracked versions I could download for free online lol.",
+      },
+      {
+        type: "body",
+        text: "I built a computer to run these programs and render videos, but it was later confiscated by police when I was arrested for ordering LSD on the dark web. But that's a story for in-person/video communication.",
+      },
+      {
+        type: "body",
+        text: "I have explored linux from both a user perspective and a research perspective to study operating system design. These days I prefer a nice Macbook.",
+      },
+      {
+        type: "heading",
+        text: "Chips, Datacenters, Macro-economics",
+      },
+      {
+        type: "body",
+        text: "Currently, many companies produce insanely optimized processors, and while I prefer working on the software side, I cant help but read in awe while following the latest Nvidia chips and large-scale systems used by the major players in the tech & ai industry.",
+      },
+      {
+        type: "body",
+        text: "I enjoy following the progress of the Stargate factory and how data centers are being created throughout the country, and the impact on compute and AI performance as well as the impact on the local economy of each city/location. I am all-for embracing technology.",
+      },
+    ],
+  },
+  {
     id: 7,
     label: "Python & Java",
     category: "General",
@@ -228,8 +280,22 @@ export const tabledata: TableSchema[] = [
     tokens: "177",
     updated: "Assign updated",
     content: [
-      "During high-school I took an AP Computer Science class where I learned Java, my first programming language. This set the foundation for continued learning into OOP design patterns, Swing UI, and the Android SDK. I remember when Android Studio was released - I was enamored by the simplified development and emulation process of a dedicated Android IDE as opposed to the old workflow using Eclipse to integrate the Android SDK manually. Good times.",
-      "I'm also familiar with Python in the context of web servers using Flask & FastAPI, LLM integrations using Ollama, and many general application uses in my current role evaluating AI responses pertaining to Python software development.",
+      {
+        type: "heading",
+        text: "Initial Experiences",
+      },
+      {
+        type: "body",
+        text: "My introduction to programming was in an AP Computer Science class in high-school. I was 1 of 4 people in the class, and there was no involvement from the teacher. Each student received a digital copy of the Blue Pelican Java book and had to read and teach themselves, fortunately everyone was extremely interested in learning this stuff and eventually became Software Engineers. This set the foundation for continued learning into OOP design patterns, Swing UI, and the Android SDK. I remember when Android Studio was released - I was enamored by the simplified development and emulation process of a dedicated Android IDE as opposed to the old workflow using Eclipse to integrate the Android SDK manually. Good times.",
+      },
+      {
+        type: "heading",
+        text: "Python & General Purpose Programming",
+      },
+      {
+        type: "body",
+        text: "I'm also familiar with Python in the context of web servers using Flask & FastAPI, LLM integrations using Ollama, and many general application uses in my current role evaluating AI responses pertaining to Python software development. Python is also the most commonly used language in competitive programming and classic algorithm problems, so I constantly read code solutions in this language and have naturally developed a 'passive proficiency'.",
+      },
     ],
   },
   {
@@ -239,7 +305,7 @@ export const tabledata: TableSchema[] = [
     access: "Public",
     tokens: "192",
     updated: "Assign updated",
-    new: [
+    content: [
       {
         type: "heading",
         text: "Teams & Corp Structure",

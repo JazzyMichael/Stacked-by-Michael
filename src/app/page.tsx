@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { CalendarClock, CheckCircle, Cloud, Lock, Server } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { asciiLogo } from "@/lib/ascii-art";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { toast } from "sonner";
 import { redirect } from "next/navigation";
 
@@ -345,6 +345,8 @@ function HorizontalLogoScroll() {
 }
 
 function NotableFeatures() {
+  const [topImg, setTopImg] = useState("flowchart");
+
   const features = [
     {
       name: "Fancy Sidebar",
@@ -400,13 +402,34 @@ function NotableFeatures() {
               </dl>
             </div>
           </div>
-          <Image
-            alt="Flowchart Screenshot"
-            src="/flowchart-screenshot.png"
-            width={1216}
-            height={721}
-            className="w-3xl max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:-ml-0"
-          />
+
+          <div className="relative">
+            <Image
+              alt="Flowchart Screenshot"
+              src="/flowchart-screenshot.png"
+              width={1216}
+              height={721}
+              className={`${
+                topImg === "flowchart"
+                  ? "border-2 border-indigo-600 z-20"
+                  : "opacity-90 z-10"
+              } md:mt-64 w-3xl max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:-ml-0 absolute`}
+              onClick={() => setTopImg("flowchart")}
+            />
+
+            <Image
+              alt="Skills Screenshot"
+              src="/skills-screenshot.png"
+              width={1216}
+              height={721}
+              className={`${
+                topImg === "skills"
+                  ? "border-2 border-indigo-600 z-20"
+                  : "opacity-90 z-10"
+              } w-2xl max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:ml-20 absolute`}
+              onClick={() => setTopImg("skills")}
+            />
+          </div>
         </div>
       </div>
     </div>

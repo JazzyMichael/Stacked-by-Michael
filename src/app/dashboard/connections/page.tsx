@@ -19,17 +19,16 @@ export default function Page() {
             The official StackAI platform uses this page to manage third-party
             connections with other services, however that&apos;s a bit
             unnecessary for this project so I&apos;ll share some cat pictures
-            instead! (All of the desk pictures were taken as I was building
-            this).
+            instead! She is right by my side as I am building this project.
           </p>
           <p>
             I adopted this beauty when I began my career in 2018 building a
             touch-screen kiosk for an early stage startup. Her name is{" "}
-            <span className="font-medium">Jazzy</span> and I absolutely love it.
-            Jazz is about understanding all the factors at play and deliberately
-            breaking the common structures of music theory to explore sounds and
-            experiences based on curiosity; I use this as a metaphor for my
-            approach to life, as I strongly value curiousity and integrity and
+            <span className="font-medium">Jazzy</span>. Jazz is about
+            understanding all the factors at play and deliberately breaking the
+            common structures of music theory to explore sounds and experiences
+            based on curiosity and exploration; I use this as a metaphor for my
+            approach to life, as I strongly value curiosity, integrity, and
             taking risks. I will risk sounding awful for the potential to sound
             incredible.
           </p>

@@ -11,7 +11,12 @@ import { toast } from "sonner";
 export function ProjectHeader() {
   const path = usePathname().trim().split("/");
   const current = path.pop() ?? "workflow";
-  const baseURL = path.join("/");
+  const id = path.pop();
+  const formatted = id
+    ?.toLowerCase()
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 
   return (
     <nav className="flex justify-between items-center px-4 h-[52.5px] border-b border-black/[0.1] bg-white sticky top-0">
@@ -20,7 +25,7 @@ export function ProjectHeader() {
 
         <Tabs
           defaultValue={current}
-          onValueChange={(value) => redirect(`${baseURL}/${value}`)}
+          onValueChange={(tab) => redirect(`/project/${id}/${tab}`)}
         >
           <TabsList>
             <TabsTrigger value="workflow">Workflow</TabsTrigger>
@@ -34,7 +39,7 @@ export function ProjectHeader() {
 
       <div className="items-end gap-4 text-[13.5px] font-medium hidden lg:flex">
         <Folder className="size-[18px] stroke-gray-500 cursor-pointer" />
-        Career Outline <Switch />
+        {formatted} <Switch />
       </div>
 
       <div className="hidden md:flex items-center gap-2">

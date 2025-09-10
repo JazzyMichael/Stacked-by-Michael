@@ -143,8 +143,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         return content.some((str) => str.includes(debouncedQuery));
       });
 
-      console.log(matches);
-
       setSearchResultsMap((prevMap) => {
         const newMap = new Map(prevMap);
         newMap.set(debouncedQuery, matches);
@@ -162,16 +160,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       >
         <SidebarHeader className="flex flex-row justify-between items-center mt-2 mb-2 pl-[14px]">
           <NavLogo />
-          {/* <SidebarTrigger  /> */}
-          {state === "collapsed" ? (
-            <Button size="icon" variant="ghost" onClick={() => toggleSidebar()}>
+          <Button
+            size="icon"
+            variant="ghost"
+            onClick={() => toggleSidebar()}
+            className="outline-0! ring-0!"
+          >
+            {state === "collapsed" ? (
               <PanelLeftOpen className="size-4! group-data-[collapsible=icon]:hidden group-hover:inline-flex!" />
-            </Button>
-          ) : (
-            <Button size="icon" variant="ghost" onClick={() => toggleSidebar()}>
+            ) : (
               <PanelRightOpen className="size-4! group-data-[collapsible=icon]:hidden group-hover:inline-flex!" />
-            </Button>
-          )}
+            )}
+          </Button>
         </SidebarHeader>
         <SidebarContent>
           <OrgSwitcher organizations={navItems.organization} />

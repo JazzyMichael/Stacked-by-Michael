@@ -303,7 +303,7 @@ function TableCellViewer({
         <Separator />
 
         <div className="flex flex-col gap-4 overflow-y-auto px-4 py-8 text-md">
-          {item.new?.map((item, i) => (
+          {item.content.map((item, i) => (
             <div
               key={i}
               className={
@@ -313,12 +313,6 @@ function TableCellViewer({
               }
             >
               {item.text}
-            </div>
-          ))}
-
-          {item.content?.map((item, i) => (
-            <div key={i} className="border-l-2 border-teal-300 pl-4">
-              {item}
             </div>
           ))}
 

@@ -72,7 +72,6 @@ export const AudioNode = memo(({ data, isConnectable }: any) => {
 });
 
 export const ImageNode = memo(({ data, isConnectable }: any) => {
-  console.log(data);
   return (
     <NodeTemplate data={data} isConnectable={isConnectable}>
       <Alert variant="accent">

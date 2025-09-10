@@ -16,7 +16,6 @@ export const CatNode = memo(({ data, isConnectable }: any) => {
       <Select
         value={data?.file}
         onValueChange={(value) => {
-          console.log(value, data);
           if (data?.onNodeDataChange) {
             data.onNodeDataChange({ id: data.id, key: "file", val: value });
           }

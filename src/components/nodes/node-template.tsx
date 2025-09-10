@@ -32,7 +32,6 @@ export default memo(
             type="target"
             position={Position.Left}
             isConnectable={isConnectable}
-            onConnect={(params) => console.log("handle connected", params)}
             style={{
               height: "20px",
               width: "20px",
@@ -91,7 +90,6 @@ export default memo(
           type="source"
           position={Position.Right}
           isConnectable={isConnectable}
-          onConnect={(params) => console.log("handle connected", params)}
           style={{
             height: "20px",
             width: "20px",
