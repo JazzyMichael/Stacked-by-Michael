@@ -136,6 +136,27 @@ export default function WorkflowCanvas({
     []
   );
 
+  const downloadProject = ({
+    nodes,
+    edges,
+  }: {
+    nodes: any[];
+    edges: any[];
+  }) => {
+    const filename = "stacked-by-michael-project.json";
+    const jsonString = JSON.stringify({ nodes, edges }, null, 2);
+    const blob = new Blob([jsonString], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="w-full h-full">
       <ReactFlow
@@ -232,7 +253,7 @@ export default function WorkflowCanvas({
             <Camera className="fill-none! h-4! w-4! max-w-none! max-h-none! group-hover:stroke-black stroke-gray-500" />
           </ControlButton>
 
-          <ControlButton onClick={() => console.log({ nodes, edges })}>
+          <ControlButton onClick={() => downloadProject({ nodes, edges })}>
             <File className="fill-white! stroke-gray-700 size-8!" />
           </ControlButton>
         </Controls>
