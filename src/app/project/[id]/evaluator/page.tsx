@@ -193,6 +193,19 @@ function PlatformEvaluation() {
         <dl className="divide-y divide-gray-100 dark:divide-white/5">
           <div className="bg-slate-100 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3 dark:bg-gray-800/25">
             <dt className="text-sm/6 font-medium text-gray-900 dark:text-white">
+              Application Cover
+            </dt>
+            <dd className="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-gray-400">
+              The job application form on jobs.ashbyhq.com/stack-ai only has
+              fields for name, email, and resume. Adding a cover letter field
+              will provide applicants like myself the opportunity to describe
+              interest in StackAI specifically and mention details about startup
+              experience and motivation.
+            </dd>
+          </div>
+
+          <div className="bg-slate-100 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3 dark:bg-gray-800/25">
+            <dt className="text-sm/6 font-medium text-gray-900 dark:text-white">
               Emphasize "Agent Stacks"
             </dt>
             <dd className="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-gray-400">

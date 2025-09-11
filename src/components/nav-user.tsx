@@ -48,7 +48,7 @@ export function NavUser({
           </DropdownMenuTrigger>
           <DropdownMenuContent
             className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
-            side={isMobile ? "bottom" : "right"}
+            side={isMobile ? "bottom" : "top"}
             align="end"
             sideOffset={4}
           >
@@ -68,17 +68,25 @@ export function NavUser({
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem className="group/gavel">
-                <Gavel className="group-hover/gavel:rotate-45 -rotate-90 transition-transform duration-500" />
+              {/* <DropdownMenuItem className="group/gavel">
+                <Axe className="group-hover/gavel:rotate-45 -rotate-90 transition-transform duration-500" />
                 API Keys
+              </DropdownMenuItem> */}
+
+              <DropdownMenuItem
+                className="group/axe"
+                onClick={() =>
+                  redirect("/Michael_Mancini-Senior_Frontend_Engineer.pdf")
+                }
+              >
+                <Gavel className="group-hover/axe:rotate-45 -rotate-90 transition-transform duration-500" />
+                Resume
               </DropdownMenuItem>
 
-              <DropdownMenuItem className="group/axe">
-                <Axe className="group-hover/axe:rotate-45 -rotate-90 transition-transform duration-500" />
-                Settings
-              </DropdownMenuItem>
-
-              <DropdownMenuItem className="group/hammer">
+              <DropdownMenuItem
+                className="group/hammer"
+                onClick={() => redirect("/")}
+              >
                 <Hammer className="group-hover/hammer:rotate-45 -rotate-90 transition-transform duration-500" />
                 Home Page
               </DropdownMenuItem>
