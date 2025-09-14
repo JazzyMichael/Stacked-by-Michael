@@ -92,6 +92,10 @@ export const tabledata: TableSchema[] = [
     updated: "Today",
     content: [
       {
+        type: "heading",
+        text: "Backend, Cloud, & Databases",
+      },
+      {
         type: "body",
         text: "Cloud platforms like Supabase & Vercel provide infrastructure for cohesive backends supporting Databases, Storage, Auth, Functions, Web Sockets/Real-time events, etc...",
       },
@@ -102,6 +106,10 @@ export const tabledata: TableSchema[] = [
       {
         type: "body",
         text: "When it comes to running and fine-tuning LLMs, Replicate is my perferred cloud provider. I have an app called MelodyMakerAI that I built using Meta/music-gen, and I also enjoy exploring all the LLMs on the Replicate platform.",
+      },
+      {
+        type: "heading",
+        text: "Product Architecture",
       },
       {
         type: "body",

@@ -101,7 +101,25 @@ export function WorkflowSidebar({
       </SidebarHeader>
 
       <SidebarContent className="scrollbar-hidden overflow-y-auto pb-4">
-        <NavCollapsible items={nodeNavItems} />
+        <NavCollapsible
+          items={nodeNavItems
+            .filter((item) => {
+              // filter based on subItem title not including item title
+              return item.items.some((subItem) => {
+                return subItem.title
+                  .toLowerCase()
+                  .includes(searchTerm.toLowerCase());
+              });
+            })
+            .map((item) => {
+              // remove subitems that do not match query
+              const items = item.items.filter((subItem) =>
+                subItem.title.toLowerCase().includes(searchTerm.toLowerCase())
+              );
+
+              return { ...item, items };
+            })}
+        />
       </SidebarContent>
 
       <SidebarFooter className="pb-3 px-0">

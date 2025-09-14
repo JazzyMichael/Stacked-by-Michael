@@ -35,7 +35,7 @@ export function NavUser({
       <SidebarMenuItem className="mx-1.5">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <SidebarMenuButton className="group-hover:w-full! data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground py-2 px-1">
+            <SidebarMenuButton className="group-hover:w-full! data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground py-2 px-1.5">
               <Avatar className="h-6 w-6 rounded-md">
                 <AvatarImage src={user.avatar} alt={user.name} />
                 <AvatarFallback className="rounded-lg">CN</AvatarFallback>
@@ -70,7 +70,7 @@ export function NavUser({
             <DropdownMenuGroup>
               {/* <DropdownMenuItem className="group/gavel">
                 <Axe className="group-hover/gavel:rotate-45 -rotate-90 transition-transform duration-500" />
-                API Keys
+                Github
               </DropdownMenuItem> */}
 
               <DropdownMenuItem

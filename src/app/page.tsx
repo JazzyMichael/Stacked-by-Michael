@@ -930,9 +930,10 @@ function AboutSection() {
                 What is this?
               </h2>
               <p className="mt-6 text-lg/8 text-pretty text-gray-600 dark:text-gray-400">
-                There are many cool YC companies and job listings - however this
-                company is exactly what I'm looking for and I believe I am the{" "}
-                {""}
+                There are many interesting companies in the YC community,
+                however StackAI stands out because I love the product and the
+                values/culture described by the founders - this is exactly what
+                I'm looking for and I believe I am the {""}
                 <span className="font-semibold">best possible fit</span> for the
                 open Software Engineering roles. The goal of this project is to
                 demonstrate my interest in Stack AI specifically, which warrants

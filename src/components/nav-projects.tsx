@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import {
   SidebarGroup,
@@ -10,6 +10,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { BoxSparkle } from "@/lib/custom-icons";
+import { toast } from "sonner";
 
 export function NavProjects() {
   return (
@@ -30,12 +31,18 @@ export function NavProjects() {
             className="group/upgrade"
           >
             <a
+              onClick={() => {
+                toast.success("Upgrade your engineering team with Michael!", {
+                  description:
+                    "Let's set up an interview - I'm confident I will exceed your expectations!",
+                });
+              }}
               href="#"
-              className="h-9! px-1! w-full group-data-[collapsible=icon]:px-1! bg-[#18181bea] hover:bg-[#18181b9f] text-white font-semibold rounded-sm group-hover:flex! group-hover:w-full! group-hover:h-9!"
+              className="h-9! px-1! w-full group-data-[collapsible=icon]:px-1! bg-[#18181bea] hover:bg-[#18181b9f] active:bg-[#18181b]! text-white active:text-white! font-semibold rounded-sm group-hover:flex! group-hover:w-full! group-hover:h-9!"
             >
               {/* <Sparkles className="p-0.5 group-hover/upgrade:scale-75 transition-transform" /> */}
               <BoxSparkle
-                // strokeWidth={1}
+                strokeWidth={1}
                 className="group-hover/upgrade:scale-75 transition-transform"
               />
               <span className="group-hover:block!">Upgrade</span>

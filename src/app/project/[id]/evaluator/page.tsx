@@ -193,7 +193,7 @@ function PlatformEvaluation() {
         <dl className="divide-y divide-gray-100 dark:divide-white/5">
           <div className="bg-slate-100 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3 dark:bg-gray-800/25">
             <dt className="text-sm/6 font-medium text-gray-900 dark:text-white">
-              Application Cover
+              Application Cover Letter
             </dt>
             <dd className="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-gray-400">
               The job application form on jobs.ashbyhq.com/stack-ai only has
@@ -223,7 +223,13 @@ function PlatformEvaluation() {
               Provide an interface for text prompts that can be used to quickly
               structure workflows using Natural Language Processing and
               fine-tuned or large context models to turn a text prompt into a
-              workflow outline.
+              workflow outline. New browser APIs already exist in Chrome for
+              running client-side LLMs, with many more in origin trials and in
+              development for support across all browsers. Adopting these new
+              technologies can not only add value to the product, but foster
+              relationships with browser maintainers that could lead to
+              partnerships, publicity, and influence in the development of these
+              new cutting-edge features.
             </dd>
           </div>
 

@@ -41,6 +41,7 @@ import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { searchData } from "@/lib/search-data";
 import { redirect } from "next/navigation";
+import { NavPopover } from "./nav-popover";
 
 const navItems = {
   user: {
@@ -182,7 +183,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarContent>
         <SidebarFooter className="pb-3 px-0">
           <NavProjects />
-          <NavMain items={navItems.projects} />
+          {/* <NavMain items={navItems.projects} /> */}
+          <NavPopover />
           <NavUser user={navItems.user} />
         </SidebarFooter>
         <SidebarRail />
