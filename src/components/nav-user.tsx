@@ -76,7 +76,7 @@ export function NavUser({
               <DropdownMenuItem
                 className="group/axe"
                 onClick={() =>
-                  redirect("/Michael_Mancini-Senior_Frontend_Engineer.pdf")
+                  redirect("/Michael_Mancini_Senior_Frontend_Engineer.pdf")
                 }
               >
                 <Gavel className="group-hover/axe:rotate-45 -rotate-90 transition-transform duration-500" />

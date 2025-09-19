@@ -5,13 +5,21 @@ import NotificationsPopover from "./notifications-popover";
 import SystemStatusPopover from "./system-status-popover";
 import HelpAndMorePopover from "./help-and-more-popover";
 
-export function NavPopover() {
+export function NavPopover({
+  notifications = true,
+  help = true,
+  status = true,
+}: {
+  notifications?: boolean;
+  help?: boolean;
+  status?: boolean;
+}) {
   return (
     <SidebarGroup>
       <SidebarMenu>
-        <NotificationsPopover />
-        <HelpAndMorePopover />
-        <SystemStatusPopover />
+        {notifications && <NotificationsPopover />}
+        {help && <HelpAndMorePopover />}
+        {status && <SystemStatusPopover />}
       </SidebarMenu>
     </SidebarGroup>
   );

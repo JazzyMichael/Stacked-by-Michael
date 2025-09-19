@@ -12,9 +12,15 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
-import { CalendarClock, CheckCircle, Cloud, Lock, Server } from "lucide-react";
+import {
+  ArrowUpRight,
+  CalendarClock,
+  CheckCircle,
+  Cloud,
+  Lock,
+  Server,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
-import { asciiLogo } from "@/lib/ascii-art";
 import { Fragment, useState } from "react";
 import { toast } from "sonner";
 import { redirect } from "next/navigation";
@@ -172,9 +178,10 @@ const navItems: {
 };
 
 export default function Page() {
-  console.log(asciiLogo);
   return (
     <>
+      <Banner />
+
       <NavigationMenu
         viewport={false}
         className="justify-between w-full max-w-none py-3 px-5 bg-white! z-40 sticky top-0 border-b-1"
@@ -1023,6 +1030,29 @@ function AboutSection() {
           />
         </div>
       </div>
+    </div>
+  );
+}
+
+function Banner() {
+  return (
+    <div className="flex items-center justify-center bg-gray-900 px-6 py-2.5 z-50 relative">
+      <p className="text-sm/6 text-white group/banner">
+        <a href="/reflection" className="cursor-pointer flex items-center">
+          <strong className="font-semibold">Outcome & Reflection</strong>
+          <svg
+            viewBox="0 0 2 2"
+            aria-hidden="true"
+            className="mx-2 inline size-0.5 fill-current"
+          >
+            <circle r={1} cx={1} cy={1} />
+          </svg>
+          <span>
+            Read about my inspiration, outreach attempts, and moving on
+          </span>
+          <ArrowUpRight className="size-4 ml-2 group-hover/banner:rotate-45 transition-transform" />
+        </a>
+      </p>
     </div>
   );
 }

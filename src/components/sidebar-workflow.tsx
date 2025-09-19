@@ -21,6 +21,7 @@ import { useState } from "react";
 import { NavCollapsible } from "./nav-collapsible";
 import { nodeNavItems } from "./nodes/data";
 import { Button } from "./ui/button";
+import { NavPopover } from "./nav-popover";
 
 const bottomNav = [
   {
@@ -123,7 +124,7 @@ export function WorkflowSidebar({
       </SidebarContent>
 
       <SidebarFooter className="pb-3 px-0">
-        <NavMain items={bottomNav} />
+        <NavPopover notifications={false} />
       </SidebarFooter>
     </Sidebar>
   );
