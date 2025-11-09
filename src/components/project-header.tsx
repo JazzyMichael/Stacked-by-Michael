@@ -33,7 +33,7 @@ export function ProjectHeader() {
             <TabsTrigger value="export">Export</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
             <TabsTrigger value="manager">Manager</TabsTrigger>
-            <TabsTrigger value="evaluator">Evaluator</TabsTrigger>
+            {/* <TabsTrigger value="evaluator">Evaluator</TabsTrigger> */}
           </TabsList>
         </Tabs>
       </div>

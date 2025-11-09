@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Activity,
-  CircleQuestionMark,
-  CircleX,
-  Pin,
-  PinOff,
-  Search,
-} from "lucide-react";
+import { CircleX, Pin, PinOff, Search } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -15,26 +8,12 @@ import {
   SidebarHeader,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { NavMain } from "@/components/nav-main";
 import { Input } from "./ui/input";
 import { useState } from "react";
 import { NavCollapsible } from "./nav-collapsible";
 import { nodeNavItems } from "./nodes/data";
 import { Button } from "./ui/button";
 import { NavPopover } from "./nav-popover";
-
-const bottomNav = [
-  {
-    title: "Help & More",
-    url: "#",
-    icon: CircleQuestionMark,
-  },
-  {
-    title: "System Status",
-    url: "#",
-    icon: Activity,
-  },
-];
 
 export function WorkflowSidebar({
   ...props

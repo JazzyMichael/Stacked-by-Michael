@@ -765,39 +765,39 @@ export const careerProject = {
       selected: false,
       dragging: false,
     },
-    {
-      id: "42805308417432804276",
-      position: {
-        x: 7002.318553052037,
-        y: -70.1404455183573,
-      },
-      type: "Career",
-      data: {
-        label: "Custom",
-        id: "42805308417432804276",
-        company: {
-          name: "Stacked (with Michael) AI",
-          logo: "/career/stack-ai.webp",
-          location: "Remote",
-          overview: "Cool Job Application",
-        },
-        role: "Senior Frontend Engineer",
-        dateRange: "August & September 2025",
-        techKeywords:
-          "Next.js, Typescript, React, React Flow, Tailwind, Shadcn",
-        highlights: [
-          "Primarily interested in the Senior Frontend Engineer role, also interested in Fullstack & Forward Deployed roles",
-        ],
-        type: "Career",
-        category: "Career",
-      },
-      measured: {
-        width: 672,
-        height: 294,
-      },
-      selected: true,
-      dragging: false,
-    },
+    // {
+    //   id: "42805308417432804276",
+    //   position: {
+    //     x: 7002.318553052037,
+    //     y: -70.1404455183573,
+    //   },
+    //   type: "Career",
+    //   data: {
+    //     label: "Custom",
+    //     id: "42805308417432804276",
+    //     company: {
+    //       name: "Stacked (with Michael) AI",
+    //       logo: "/career/stack-ai.webp",
+    //       location: "Remote",
+    //       overview: "Cool Job Application",
+    //     },
+    //     role: "Senior Frontend Engineer",
+    //     dateRange: "August & September 2025",
+    //     techKeywords:
+    //       "Next.js, Typescript, React, React Flow, Tailwind, Shadcn",
+    //     highlights: [
+    //       "Primarily interested in the Senior Frontend Engineer role, also interested in Fullstack & Forward Deployed roles",
+    //     ],
+    //     type: "Career",
+    //     category: "Career",
+    //   },
+    //   measured: {
+    //     width: 672,
+    //     height: 294,
+    //   },
+    //   selected: true,
+    //   dragging: false,
+    // },
     {
       id: "92619367782538214947",
       position: {

@@ -26,12 +26,12 @@ export const conversations: Conversation[] = [
   //   hoverColor: "hover:bg-cyan-200",
   //   selectedColor: "bg-cyan-100",
   // },
-  {
-    label: "Why Stack AI?",
-    content: ";)",
-    hoverColor: "hover:bg-blue-200",
-    selectedColor: "bg-blue-100",
-  },
+  // {
+  //   label: "Why Stack AI?",
+  //   content: ";)",
+  //   hoverColor: "hover:bg-blue-200",
+  //   selectedColor: "bg-blue-100",
+  // },
   // {
   //   label: "Why build this project?",
   //   content: "The biggest hurdle is the opportunity to talk with someone to demonstrate my skills.",
