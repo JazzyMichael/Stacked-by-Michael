@@ -103,7 +103,14 @@ export function WorkflowSidebar({
       </SidebarContent>
 
       <SidebarFooter className="pb-3 px-0">
-        <NavPopover notifications={false} />
+        <div
+          className={`text-center text-sm font-light pt-2 whitespace-nowrap group-hover:block hidden ${
+            state === "expanded" ? "!block" : ""
+          }`}
+        >
+          (Drag nodes onto the canvas)
+        </div>
+        <NavPopover />
       </SidebarFooter>
     </Sidebar>
   );

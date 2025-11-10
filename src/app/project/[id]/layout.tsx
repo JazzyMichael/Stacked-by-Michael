@@ -1,6 +1,5 @@
 import { ProjectHeader } from "@/components/project-header";
 // import { headers } from "next/headers";
-// import { redirect } from "next/navigation";
 
 export default async function Layout({
   children,

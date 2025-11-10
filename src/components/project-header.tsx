@@ -22,17 +22,22 @@ export function ProjectHeader() {
   return (
     <nav className="flex justify-between items-center px-4 h-[52.5px] border-b border-black/[0.1] bg-white sticky top-0">
       <div className="flex items-center gap-3">
-        <NavLogo />
+        {/* <NavLogo /> */}
 
-        <Tabs
-          defaultValue={current}
-          onValueChange={(tab) => redirect(`/project/${id}/${tab}`)}
-        >
+        <Tabs defaultValue={current}>
           <TabsList>
-            <TabsTrigger value="workflow">Workflow</TabsTrigger>
-            <TabsTrigger value="export">Export</TabsTrigger>
-            <TabsTrigger value="analytics">Analytics</TabsTrigger>
-            <TabsTrigger value="manager">Manager</TabsTrigger>
+            <TabsTrigger value="workflow" asChild>
+              <Link href={`/project/${id}/workflow`}>Workflow</Link>
+            </TabsTrigger>
+            <TabsTrigger value="export" asChild>
+              <Link href={`/project/${id}/export`}>Export</Link>
+            </TabsTrigger>
+            <TabsTrigger value="analytics" asChild>
+              <Link href={`/project/${id}/analytics`}>Analytics</Link>
+            </TabsTrigger>
+            <TabsTrigger value="manager" asChild>
+              <Link href={`/project/${id}/manager`}>Manager</Link>
+            </TabsTrigger>
             {/* <TabsTrigger value="evaluator">Evaluator</TabsTrigger> */}
           </TabsList>
         </Tabs>
@@ -62,7 +67,7 @@ export function ProjectHeader() {
           variant="secondary"
           onClick={() =>
             toast.success("Successfully clicked a button!", {
-              description: "(nothing will happen)",
+              description: "(nothing will be saved)",
             })
           }
         >
@@ -72,8 +77,8 @@ export function ProjectHeader() {
           variant="default"
           className="px-4 font-semibold"
           onClick={() =>
-            toast.info("Successfully clicked a button!", {
-              description: "(nothing will happen)",
+            toast.error("Successfully clicked a button!", {
+              description: "(nothing will be published)",
             })
           }
         >
